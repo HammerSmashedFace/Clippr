@@ -3,3 +3,11 @@ use_frameworks!
 target ‘ClipprApp’ do
     pod 'Socket.IO-Client-Swift', '~> 9.0.0' # Or latest version
 end
+
+target ‘ClipprKeyboard’ do
+    pod 'Socket.IO-Client-Swift', '~> 9.0.0' # Or latest version
+end
+
+target ‘Clippr’ do
+    pod 'Socket.IO-Client-Swift', '~> 9.0.0' # Or latest version
+end
