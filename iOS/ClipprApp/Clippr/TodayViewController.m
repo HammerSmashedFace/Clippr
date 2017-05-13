@@ -62,7 +62,10 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 		NSInteger rangeLength = itemsCount > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : itemsCount;
 		NSInteger rangeLocation = itemsCount > kHSFTodayViewControllerMaxItems ? itemsCount - kHSFTodayViewControllerMaxItems : 0;
 		NSRange indexesRange = NSMakeRange(rangeLocation, rangeLength);
-		result = [self.dataController.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:indexesRange]];
+		NSArray *rangedItems = [self.dataController.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:indexesRange]];
+
+		NSSortDescriptor *sortDescripted = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+		result = [rangedItems sortedArrayUsingDescriptors:@[sortDescripted]];
 	}
 	
 	return result;
