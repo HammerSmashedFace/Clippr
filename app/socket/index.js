@@ -1,6 +1,6 @@
 'use strict';
 
-var Text = require('../database');
+var Text = require('../model/text');
 
 var events = function(io) {
 
@@ -9,7 +9,8 @@ var events = function(io) {
 		socket.on('copy_text', function(data) {
 			var text = new Text({
 				text: data.text,
-				date: data.date
+				bundleID: data.bundleID,
+				timestamp: data.timestamp
 			});
 
 			text.save(function(error) {
@@ -17,7 +18,7 @@ var events = function(io) {
 					throw error;
 				}
 
-				io.emit('copy_text', data);
+				io.emit('copy_text', text);
 			})
 		});
 
