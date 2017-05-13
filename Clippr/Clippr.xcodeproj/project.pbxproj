@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD386E9F1EC6F2F300E15EF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD386E9E1EC6F2F300E15EF3 /* AppDelegate.m */; };
+		BD386EA21EC6F2F300E15EF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD386EA11EC6F2F300E15EF3 /* main.m */; };
+		BD386EA51EC6F2F300E15EF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD386EA41EC6F2F300E15EF3 /* ViewController.m */; };
+		BD386EA71EC6F2F300E15EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD386EA61EC6F2F300E15EF3 /* Assets.xcassets */; };
+		BD386EAA1EC6F2F300E15EF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD386EA81EC6F2F300E15EF3 /* Main.storyboard */; };
+		BD923AFC1EC6F91000DDDDB4 /* SFClipboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923AFB1EC6F91000DDDDB4 /* SFClipboardManager.m */; };
+		BD923AFF1EC6F99900DDDDB4 /* SFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923AFE1EC6F99900DDDDB4 /* SFClipboardItem.m */; };
+		BD923B021EC6FAB700DDDDB4 /* SFImageClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923B011EC6FAB700DDDDB4 /* SFImageClipboardItem.m */; };
+		BD923B061EC6FB5500DDDDB4 /* SFApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923B051EC6FB5500DDDDB4 /* SFApplication.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BD386E9A1EC6F2F300E15EF3 /* Clippr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clippr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD386E9D1EC6F2F300E15EF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BD386E9E1EC6F2F300E15EF3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BD386EA11EC6F2F300E15EF3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BD386EA31EC6F2F300E15EF3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BD386EA41EC6F2F300E15EF3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BD386EA61EC6F2F300E15EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD386EA91EC6F2F300E15EF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD386EAB1EC6F2F300E15EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD923AFA1EC6F91000DDDDB4 /* SFClipboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFClipboardManager.h; sourceTree = "<group>"; };
+		BD923AFB1EC6F91000DDDDB4 /* SFClipboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFClipboardManager.m; sourceTree = "<group>"; };
+		BD923AFD1EC6F99900DDDDB4 /* SFClipboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFClipboardItem.h; sourceTree = "<group>"; };
+		BD923AFE1EC6F99900DDDDB4 /* SFClipboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFClipboardItem.m; sourceTree = "<group>"; };
+		BD923B001EC6FAB700DDDDB4 /* SFImageClipboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFImageClipboardItem.h; sourceTree = "<group>"; };
+		BD923B011EC6FAB700DDDDB4 /* SFImageClipboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFImageClipboardItem.m; sourceTree = "<group>"; };
+		BD923B041EC6FB5500DDDDB4 /* SFApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFApplication.h; sourceTree = "<group>"; };
+		BD923B051EC6FB5500DDDDB4 /* SFApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFApplication.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD386E971EC6F2F300E15EF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD386E911EC6F2F200E15EF3 = {
+			isa = PBXGroup;
+			children = (
+				BD386E9C1EC6F2F300E15EF3 /* Clippr */,
+				BD386E9B1EC6F2F300E15EF3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD386E9B1EC6F2F300E15EF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD386E9A1EC6F2F300E15EF3 /* Clippr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD386E9C1EC6F2F300E15EF3 /* Clippr */ = {
+			isa = PBXGroup;
+			children = (
+				BD923B071EC6FE3900DDDDB4 /* Model */,
+				BD386E9D1EC6F2F300E15EF3 /* AppDelegate.h */,
+				BD386E9E1EC6F2F300E15EF3 /* AppDelegate.m */,
+				BD386EA31EC6F2F300E15EF3 /* ViewController.h */,
+				BD386EA41EC6F2F300E15EF3 /* ViewController.m */,
+				BD386EA61EC6F2F300E15EF3 /* Assets.xcassets */,
+				BD386EA81EC6F2F300E15EF3 /* Main.storyboard */,
+				BD386EAB1EC6F2F300E15EF3 /* Info.plist */,
+				BD386EA01EC6F2F300E15EF3 /* Supporting Files */,
+			);
+			path = Clippr;
+			sourceTree = "<group>";
+		};
+		BD386EA01EC6F2F300E15EF3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD386EA11EC6F2F300E15EF3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD923B031EC6FABE00DDDDB4 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				BD923AFD1EC6F99900DDDDB4 /* SFClipboardItem.h */,
+				BD923AFE1EC6F99900DDDDB4 /* SFClipboardItem.m */,
+				BD923B001EC6FAB700DDDDB4 /* SFImageClipboardItem.h */,
+				BD923B011EC6FAB700DDDDB4 /* SFImageClipboardItem.m */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		BD923B071EC6FE3900DDDDB4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD923B031EC6FABE00DDDDB4 /* Items */,
+				BD923AFA1EC6F91000DDDDB4 /* SFClipboardManager.h */,
+				BD923AFB1EC6F91000DDDDB4 /* SFClipboardManager.m */,
+				BD923B041EC6FB5500DDDDB4 /* SFApplication.h */,
+				BD923B051EC6FB5500DDDDB4 /* SFApplication.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD386E991EC6F2F300E15EF3 /* Clippr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD386EAE1EC6F2F300E15EF3 /* Build configuration list for PBXNativeTarget "Clippr" */;
+			buildPhases = (
+				BD386E961EC6F2F300E15EF3 /* Sources */,
+				BD386E971EC6F2F300E15EF3 /* Frameworks */,
+				BD386E981EC6F2F300E15EF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clippr;
+			productName = Clippr;
+			productReference = BD386E9A1EC6F2F300E15EF3 /* Clippr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD386E921EC6F2F300E15EF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = HammerSmashedFace;
+				TargetAttributes = {
+					BD386E991EC6F2F300E15EF3 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = V2ADZBMLSN;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BD386E951EC6F2F300E15EF3 /* Build configuration list for PBXProject "Clippr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD386E911EC6F2F200E15EF3;
+			productRefGroup = BD386E9B1EC6F2F300E15EF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD386E991EC6F2F300E15EF3 /* Clippr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD386E981EC6F2F300E15EF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD386EA71EC6F2F300E15EF3 /* Assets.xcassets in Resources */,
+				BD386EAA1EC6F2F300E15EF3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD386E961EC6F2F300E15EF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD923B021EC6FAB700DDDDB4 /* SFImageClipboardItem.m in Sources */,
+				BD386EA51EC6F2F300E15EF3 /* ViewController.m in Sources */,
+				BD386EA21EC6F2F300E15EF3 /* main.m in Sources */,
+				BD923AFF1EC6F99900DDDDB4 /* SFClipboardItem.m in Sources */,
+				BD386E9F1EC6F2F300E15EF3 /* AppDelegate.m in Sources */,
+				BD923B061EC6FB5500DDDDB4 /* SFApplication.m in Sources */,
+				BD923AFC1EC6F91000DDDDB4 /* SFClipboardManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BD386EA81EC6F2F300E15EF3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD386EA91EC6F2F300E15EF3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD386EAC1EC6F2F300E15EF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BD386EAD1EC6F2F300E15EF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BD386EAF1EC6F2F300E15EF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V2ADZBMLSN;
+				INFOPLIST_FILE = Clippr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hammerSmashedFace.Clippr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BD386EB01EC6F2F300E15EF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V2ADZBMLSN;
+				INFOPLIST_FILE = Clippr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hammerSmashedFace.Clippr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD386E951EC6F2F300E15EF3 /* Build configuration list for PBXProject "Clippr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD386EAC1EC6F2F300E15EF3 /* Debug */,
+				BD386EAD1EC6F2F300E15EF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD386EAE1EC6F2F300E15EF3 /* Build configuration list for PBXNativeTarget "Clippr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD386EAF1EC6F2F300E15EF3 /* Debug */,
+				BD386EB01EC6F2F300E15EF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD386E921EC6F2F300E15EF3 /* Project object */;
+}
