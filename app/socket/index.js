@@ -1,11 +1,11 @@
 'use strict';
 
 var events = function(io) {
-	
+
 	io.on('connection', function(socket) {
 
-		socket.on('text', function(string) {
-			socket.send(string);
+		socket.on('copy_text', function(data) {
+			socket.broadcast.emit('copy_text', data);
 		});
 	})
 }
