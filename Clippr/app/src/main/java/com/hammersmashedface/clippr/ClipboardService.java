@@ -11,7 +11,7 @@ import android.util.Log;
 import java.util.Date;
 
 public class ClipboardService extends Service {
-    private SocketController socketController;
+    private ServerManager serverManager;
     private ClipboardManager clipboardManager;
 
     @Override
@@ -19,8 +19,8 @@ public class ClipboardService extends Service {
         super.onCreate();
 
         clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
-        socketController = new SocketController(clipboardManager, SERVER_URI);
-        socketController.connect();
+        serverManager = new ServerManager(clipboardManager, SERVER_URI);
+        serverManager.connect();
 
         clipboardManager.addPrimaryClipChangedListener(new ClipboardManager.OnPrimaryClipChangedListener() {
             @Override
@@ -29,7 +29,7 @@ public class ClipboardService extends Service {
                 long date = new Date().getTime();
 
                 TextItem item = new TextItem(text, date);
-                socketController.copyItem(item);
+                serverManager.copyItem(item);
 
                 Log.d("ClipboardService", text);
             }

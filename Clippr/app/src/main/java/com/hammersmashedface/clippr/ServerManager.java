@@ -13,11 +13,11 @@ import io.socket.client.IO;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
 
-public class SocketController {
+public class ServerManager {
     private Socket socket;
     private ClipboardManager clipboardManager;
 
-    public SocketController(ClipboardManager clipboardManager, String uri) {
+    public ServerManager(ClipboardManager clipboardManager, String uri) {
         this.clipboardManager = clipboardManager;
 
         try {
@@ -58,7 +58,7 @@ public class SocketController {
         });
         socket.connect();
 
-        Log.v("SocketController", Boolean.toString(socket.connected()));
+        Log.v("ServerManager", Boolean.toString(socket.connected()));
     }
 
     public void fetchHistory() {

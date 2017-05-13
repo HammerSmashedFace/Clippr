@@ -1,7 +1,5 @@
 package com.hammersmashedface.clippr;
 
-import android.util.Log;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
