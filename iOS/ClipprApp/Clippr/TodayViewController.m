@@ -14,6 +14,8 @@
 
 #import <NotificationCenter/NotificationCenter.h>
 
+NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
+
 @interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak, nonatomic) IBOutlet UITableView *itemsTableView;
@@ -27,6 +29,8 @@
 
 - (void)viewDidLoad
 {
+	[super viewDidLoad];
+
 	self.dataController = [[HSFDataController alloc] init];
 	self.eventManager = [[HSFEventManager alloc] init];
 	self.jsonManager = [[HSFJSONManager alloc] init];
@@ -37,7 +41,12 @@
 	self.eventManager.delegate = (id<HSFEventManagerDelegate>)self.jsonManager;
 	self.jsonManager.delegate = (id<HSFJSONManagerDelegate>)self.dataController;
 
-    [super viewDidLoad];
+	[self.dataController addObserver:self forKeyPath:@"items" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:&kHSFTodayViewControllerContext];
+}
+
+- (void)dealloc
+{
+	[_dataController removeObserver:self forKeyPath:@"items"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,14 +61,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return [[UITableViewCell alloc] init];
+	static NSString *simpleTableIdentifier = @"TextIdentifier";
+
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
+	if (cell == nil)
+	{
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+	}
+
+	HSFClipboardItem *clipboardItem = [self.dataController.items objectAtIndex:indexPath.row];
+	cell.textLabel.text = clipboardItem.text;
+
+	return cell;
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler
 {
-
-
     completionHandler(NCUpdateResultNewData);
+}
+
+#pragma mark - Observing
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+	if (context == &kHSFTodayViewControllerContext && [keyPath isEqualToString:@"items"])
+	{
+		[self.itemsTableView reloadData];
+	}
+	else
+	{
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	}
 }
 
 @end

@@ -12,7 +12,8 @@
 
 @protocol HSFJSONManagerDelegate <NSObject>
 
-- (void)jsonManager:(HSFJSONManager *)manager didUpdateData:(NSDictionary *)data;
+- (void)jsonManager:(HSFJSONManager *)manager didReceiveItem:(NSDictionary *)data;
+- (void)jsonManager:(HSFJSONManager *)manager didUpdateData:(NSArray *)data;
 
 @end
 

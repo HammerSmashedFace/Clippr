@@ -25,8 +25,24 @@
 	if (error == nil)
 	{
 		[jsonData writeToFile:[self pathForJSON] atomically:YES];
-		[self.delegate jsonManager:self didUpdateData:data];
+		[self.delegate jsonManager:self didReceiveItem:data];
 	}
+}
+
+- (void)eventManager:(HSFEventManager *)manager didFetchHistory:(NSArray *)history
+{
+	for (NSDictionary *itemDictionary in history)
+	{
+		NSError *error = nil;
+		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:itemDictionary options:kNilOptions error:&error];
+
+		if (error == nil)
+		{
+			[jsonData writeToFile:[self pathForJSON] atomically:YES];
+		}
+	}
+
+	[self.delegate jsonManager:self didUpdateData:history];
 }
 
 - (NSString *)pathForJSON

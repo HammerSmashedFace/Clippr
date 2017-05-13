@@ -55,17 +55,17 @@ static NSString *const kHSFEventManagerSocketURL = @"http://crowley-m-pc.zeo.lcl
 
 	[self.socketClient on:@"copy_text" callback:^(NSArray *data, SocketAckEmitter *ack)
 	{
-		if (self.connected && [data.firstObject isKindOfClass:[NSDictionary class]])
+		if (self.connected && data != nil)
 		{
 			[self.delegate eventManager:self didReceiveData:data.firstObject];
 		}
 	}];
 
-	[self.socketClient on:@"history" callback:^(NSArray *date, SocketAckEmitter *ack)
+	[self.socketClient on:@"history" callback:^(NSArray *data, SocketAckEmitter *ack)
 	{
-		if (self.connected)
+		if (self.connected && data != nil)
 		{
-			NSLog(@"%@", date);
+			[self.delegate eventManager:self didFetchHistory:data.firstObject];
 		}
 	}];
 }

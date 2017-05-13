@@ -13,6 +13,7 @@
 @protocol HSFEventManagerDelegate <NSObject>
 
 - (void)eventManager:(HSFEventManager *)manager didReceiveData:(NSDictionary *)data;
+- (void)eventManager:(HSFEventManager *)manager didFetchHistory:(NSArray *)data;
 
 @end
 
