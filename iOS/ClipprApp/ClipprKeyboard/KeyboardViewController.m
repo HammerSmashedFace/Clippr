@@ -10,7 +10,7 @@
 
 @interface KeyboardViewController ()
 
-@property (nonatomic, strong) UIButton *nextKeyboardButton;
+@property (nonatomic, retain, readwrite) NSMutableArray<NSString *> *data;
 
 @end
 
@@ -25,27 +25,41 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    // Perform custom UI setup here
-    self.nextKeyboardButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    
-    [self.nextKeyboardButton setTitle:NSLocalizedString(@"Next Keyboard", @"Title for 'Next Keyboard' button") forState:UIControlStateNormal];
-    [self.nextKeyboardButton sizeToFit];
-    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self.nextKeyboardButton addTarget:self action:@selector(handleInputModeListFromView:withEvent:) forControlEvents:UIControlEventAllTouchEvents];
-    
-    [self.view addSubview:self.nextKeyboardButton];
-    
-    [self.nextKeyboardButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
-    [self.nextKeyboardButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+	[super viewDidLoad];
+	self.data = [NSMutableArray arrayWithObjects:@"1",  @"2", @"3", @"4", @"5", @"6", @"7", nil];
 }
 
-- (void)didReceiveMemoryWarning
+- (NSString *)nibName
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated
+	return @"KeyboardView";
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return self.data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	static NSString *simpleTableIdentifier = @"clippboard";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+ 
+	if (cell == nil) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+	}
+ 
+	cell.textLabel.text = [self.data objectAtIndex:indexPath.row];
+	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSUInteger row = indexPath.row;
+	if (row < self.data.count)
+	{
+		[self.textDocumentProxy insertText:self.data[row]];
+	}
+	[self advanceToNextInputMode];
 }
 
 @end
