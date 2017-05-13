@@ -12,6 +12,8 @@
 #import "HSFJSONManager.h"
 #import "HSFClipboardItem.h"
 
+#import "HSFCustomTableViewCell.h"
+
 #import <NotificationCenter/NotificationCenter.h>
 
 NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
@@ -33,6 +35,8 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+
+	self.preferredContentSize = CGSizeMake(0, 300);
 
 	self.dataController = [[HSFDataController alloc] init];
 	self.eventManager = [[HSFEventManager alloc] init];
@@ -78,6 +82,11 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 #pragma mark - UITableView methods
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 50;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	return kHSFTodayViewControllerMaxItems;
@@ -85,13 +94,14 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *simpleTableIdentifier = @"TextIdentifier";
-
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+	HSFCustomTableViewCell *cell = (HSFCustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kHSFCustomTableViewCellIdentifier];
 
 	if (cell == nil)
 	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+		cell = [nib objectAtIndex:0];
+		
+//		cell = [[HSFCustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kHSFCustomTableViewCellIdentifier];
 	}
 
 	HSFClipboardItem *clipboardItem = [self.items objectAtIndex:indexPath.row];

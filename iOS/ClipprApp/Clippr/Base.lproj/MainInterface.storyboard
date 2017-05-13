@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,18 +18,18 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="244.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="23" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jw0-Nb-wX1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jw0-Nb-wX1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="244.66666666666666"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextIdentifier" rowHeight="34" id="7Xf-sT-3dd">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="34"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextIdentifier" rowHeight="77" id="7Xf-sT-3dd" customClass="HSFCustomTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Xf-sT-3dd" id="jiT-ja-Xzm">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="76.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -41,10 +41,10 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Jw0-Nb-wX1" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="C9A-TA-QbQ"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Jw0-Nb-wX1" secondAttribute="bottom" id="DhB-g7-Wvd"/>
-                            <constraint firstAttribute="trailing" secondItem="Jw0-Nb-wX1" secondAttribute="trailing" id="i9z-9Z-yv3"/>
-                            <constraint firstItem="Jw0-Nb-wX1" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="oRt-27-JDo"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Jw0-Nb-wX1" secondAttribute="bottom" id="7lg-fd-RR6"/>
+                            <constraint firstItem="Jw0-Nb-wX1" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="NSD-Ow-IYC"/>
+                            <constraint firstAttribute="trailing" secondItem="Jw0-Nb-wX1" secondAttribute="trailing" id="Pwi-Jq-Q4n"/>
+                            <constraint firstItem="Jw0-Nb-wX1" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="r71-SY-Pmc"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -52,14 +52,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="120"/>
+                    <size key="freeformSize" width="320" height="244.5"/>
                     <connections>
                         <outlet property="itemsTableView" destination="Jw0-Nb-wX1" id="ezN-fi-Wye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33.600000000000001" y="37.781109445277366"/>
+            <point key="canvasLocation" x="33.333333333333336" y="37.092391304347828"/>
         </scene>
     </scenes>
 </document>
