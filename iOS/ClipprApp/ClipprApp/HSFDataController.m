@@ -19,14 +19,13 @@
 
 @implementation HSFDataController
 
-- (instancetype)initWithEventManager:(HSFEventManager *)manager
+- (instancetype)init
 {
 	self = [super init];
 
 	if (self != nil)
 	{
 		_mutableItems = [[NSMutableArray alloc] init];
-		_eventManager = manager;
 	}
 
 	return self;
@@ -39,8 +38,6 @@
 
 - (void)addItem:(HSFClipboardItem *)item
 {
-	[self.mutableItems addObject:item];
-
 	[self.delegate dataController:self didReceiveItem:item];
 }
 

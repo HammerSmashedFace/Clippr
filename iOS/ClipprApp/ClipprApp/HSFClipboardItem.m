@@ -50,12 +50,12 @@
 
 - (instancetype)initWithJSONRepresentation:(NSDictionary *)representation
 {
-
+	return [self initWithText:representation[@"text"] date:representation[@"date"]];
 }
 
 - (NSDictionary *)jsonRepresentation
 {
-
+	return @{ @"text" : self.text, @"date" : self.date };
 }
 
 @end

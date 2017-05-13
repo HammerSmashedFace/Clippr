@@ -7,13 +7,19 @@
 //
 
 #import "TodayViewController.h"
+#import "HSFDataController.h"
+#import "HSFEventManager.h"
+#import "HSFJSONManager.h"
 #import "HSFClipboardItem.h"
 
 #import <NotificationCenter/NotificationCenter.h>
 
 @interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
+@property (nonatomic, weak, nonatomic) IBOutlet UITableView *itemsTableView;
+@property (nonatomic, strong, readwrite) HSFDataController *dataController;
+@property (nonatomic, strong, readwrite) HSFEventManager *eventManager;
+@property (nonatomic, strong, readwrite) HSFJSONManager *jsonManager;
 
 @end
 
@@ -21,13 +27,20 @@
 
 - (void)viewDidLoad
 {
+	self.dataController = [[HSFDataController alloc] init];
+	self.eventManager = [[HSFEventManager alloc] init];
+	self.jsonManager = [[HSFJSONManager alloc] init];
+
+	self.dataController.delegate = (id<HSFDataControllerDelegate>)self.eventManager;
+	self.eventManager.delegate = (id<HSFEventManagerDelegate>)self.jsonManager;
+	self.jsonManager.delegate = (id<HSFJSONManagerDelegate>)self.dataController;
+
     [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

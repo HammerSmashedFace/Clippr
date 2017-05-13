@@ -25,6 +25,10 @@
 		9B33EBD61EC76CC900E35D1B /* HSFDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD41EC76CC900E35D1B /* HSFDataController.m */; };
 		9B33EBD91EC76ED200E35D1B /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
 		9B33EBDD1EC772AB00E35D1B /* HSFJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */; };
+		9B33EBDE1EC7914500E35D1B /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
+		9B33EBDF1EC7914800E35D1B /* HSFJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */; };
+		9B33EBE01EC7914C00E35D1B /* HSFDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD41EC76CC900E35D1B /* HSFDataController.m */; };
+		9B33EBE11EC7915400E35D1B /* HSFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -513,7 +517,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B33EBDE1EC7914500E35D1B /* HSFEventManager.m in Sources */,
+				9B33EBE01EC7914C00E35D1B /* HSFDataController.m in Sources */,
+				9B33EBE11EC7915400E35D1B /* HSFClipboardItem.m in Sources */,
 				9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */,
+				9B33EBDF1EC7914800E35D1B /* HSFJSONManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
