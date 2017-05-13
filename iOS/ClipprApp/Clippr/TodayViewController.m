@@ -31,6 +31,8 @@
 	self.eventManager = [[HSFEventManager alloc] init];
 	self.jsonManager = [[HSFJSONManager alloc] init];
 
+	[self.eventManager configureSocket];
+
 	self.dataController.delegate = (id<HSFDataControllerDelegate>)self.eventManager;
 	self.eventManager.delegate = (id<HSFEventManagerDelegate>)self.jsonManager;
 	self.jsonManager.delegate = (id<HSFJSONManagerDelegate>)self.dataController;
