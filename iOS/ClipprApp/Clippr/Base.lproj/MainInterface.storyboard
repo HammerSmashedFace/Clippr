@@ -25,11 +25,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextIdentifier" rowHeight="23" id="7Xf-sT-3dd">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="23"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextIdentifier" rowHeight="34" id="7Xf-sT-3dd">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="34"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Xf-sT-3dd" id="jiT-ja-Xzm">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

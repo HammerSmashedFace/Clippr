@@ -15,6 +15,7 @@
 #import <NotificationCenter/NotificationCenter.h>
 
 NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
+NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 @interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource>
 
@@ -22,6 +23,8 @@ NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
 @property (nonatomic, strong, readwrite) HSFDataController *dataController;
 @property (nonatomic, strong, readwrite) HSFEventManager *eventManager;
 @property (nonatomic, strong, readwrite) HSFJSONManager *jsonManager;
+
+@property (nonatomic, strong, readonly) NSArray<HSFClipboardItem *> *items;
 
 @end
 
@@ -49,14 +52,32 @@ NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
 	[_dataController removeObserver:self forKeyPath:@"items"];
 }
 
+- (NSArray<HSFClipboardItem *> *)items
+{
+	NSArray *result = nil;
+
+	if (self.dataController.items.count != 0)
+	{
+		NSInteger itemsCount = self.dataController.items.count;
+		NSInteger rangeLength = itemsCount > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : itemsCount;
+		NSInteger rangeLocation = itemsCount > kHSFTodayViewControllerMaxItems ? itemsCount - kHSFTodayViewControllerMaxItems : 0;
+		NSRange indexesRange = NSMakeRange(rangeLocation, rangeLength);
+		result = [self.dataController.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:indexesRange]];
+	}
+	
+	return result;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - UITableView methods
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return self.dataController.items.count;
+	return kHSFTodayViewControllerMaxItems;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,7 +91,7 @@ NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
 	}
 
-	HSFClipboardItem *clipboardItem = [self.dataController.items objectAtIndex:indexPath.row];
+	HSFClipboardItem *clipboardItem = [self.items objectAtIndex:indexPath.row];
 	cell.textLabel.text = clipboardItem.text;
 
 	return cell;
