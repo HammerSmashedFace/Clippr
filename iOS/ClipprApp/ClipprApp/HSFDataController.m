@@ -48,7 +48,8 @@
 
 - (void)jsonManager:(HSFJSONManager *)manager didUpdateData:(NSDictionary *)data
 {
-	
+	HSFClipboardItem *newItem = [[HSFClipboardItem alloc] initWithJSONRepresentation:data];
+	[self.mutableItems addObject:newItem];
 }
 
 @end
