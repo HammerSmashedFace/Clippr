@@ -7,12 +7,32 @@
 		<key>Clippr.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>ClipprApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>ClipprKeyboard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9BDB21F11EC707C1008A8CDE</key>
+		<key>9B33EB581EC7547400E35D1B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B33EB791EC7609A00E35D1B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B33EB8C1EC7615C00E35D1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

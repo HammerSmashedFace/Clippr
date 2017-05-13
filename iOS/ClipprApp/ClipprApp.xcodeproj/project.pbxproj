@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		947886C04A74894D404F747E /* Pods_ClipprApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ABD597C80FB269A71EA6B19 /* Pods_ClipprApp.framework */; };
+		9B33EB5E1EC7547400E35D1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB5D1EC7547400E35D1B /* main.m */; };
+		9B33EB611EC7547400E35D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB601EC7547400E35D1B /* AppDelegate.m */; };
+		9B33EB641EC7547400E35D1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB631EC7547400E35D1B /* ViewController.m */; };
+		9B33EB671EC7547400E35D1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EB651EC7547400E35D1B /* Main.storyboard */; };
+		9B33EB691EC7547400E35D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EB681EC7547400E35D1B /* Assets.xcassets */; };
+		9B33EB6C1EC7547400E35D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EB6A1EC7547400E35D1B /* LaunchScreen.storyboard */; };
+		9B33EB7E1EC7609A00E35D1B /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB7D1EC7609A00E35D1B /* KeyboardViewController.m */; };
+		9B33EB821EC7609A00E35D1B /* ClipprKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B33EB7A1EC7609A00E35D1B /* ClipprKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B33EB8F1EC7615C00E35D1B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B33EB8E1EC7615C00E35D1B /* NotificationCenter.framework */; };
+		9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB921EC7615C00E35D1B /* TodayViewController.m */; };
+		9B33EB961EC7615C00E35D1B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EB941EC7615C00E35D1B /* MainInterface.storyboard */; };
+		9B33EB9A1EC7615C00E35D1B /* Clippr.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B33EB8D1EC7615C00E35D1B /* Clippr.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B33EB801EC7609A00E35D1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B33EB511EC7547400E35D1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B33EB791EC7609A00E35D1B;
+			remoteInfo = ClipprKeyboard;
+		};
+		9B33EB981EC7615C00E35D1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B33EB511EC7547400E35D1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B33EB8C1EC7615C00E35D1B;
+			remoteInfo = Clippr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9B33EB861EC7609A00E35D1B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9B33EB9A1EC7615C00E35D1B /* Clippr.appex in Embed App Extensions */,
+				9B33EB821EC7609A00E35D1B /* ClipprKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2ABD597C80FB269A71EA6B19 /* Pods_ClipprApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipprApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B33EB591EC7547400E35D1B /* ClipprApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipprApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B33EB5D1EC7547400E35D1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9B33EB5F1EC7547400E35D1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B33EB601EC7547400E35D1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B33EB621EC7547400E35D1B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9B33EB631EC7547400E35D1B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9B33EB661EC7547400E35D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B33EB681EC7547400E35D1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B33EB6B1EC7547400E35D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B33EB6D1EC7547400E35D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B33EB7A1EC7609A00E35D1B /* ClipprKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClipprKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B33EB7C1EC7609A00E35D1B /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
+		9B33EB7D1EC7609A00E35D1B /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
+		9B33EB7F1EC7609A00E35D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B33EB8D1EC7615C00E35D1B /* Clippr.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Clippr.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B33EB8E1EC7615C00E35D1B /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		9B33EB911EC7615C00E35D1B /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		9B33EB921EC7615C00E35D1B /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		9B33EB951EC7615C00E35D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9B33EB971EC7615C00E35D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3CE6D3666C41B50570E15F1 /* Pods-ClipprApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipprApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClipprApp/Pods-ClipprApp.release.xcconfig"; sourceTree = "<group>"; };
+		F8DEDB4C23BE605A6C39F779 /* Pods-ClipprApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipprApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClipprApp/Pods-ClipprApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B33EB561EC7547400E35D1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				947886C04A74894D404F747E /* Pods_ClipprApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B33EB771EC7609A00E35D1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B33EB8A1EC7615C00E35D1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B33EB8F1EC7615C00E35D1B /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EDEE78ED316333EC3391683 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2ABD597C80FB269A71EA6B19 /* Pods_ClipprApp.framework */,
+				9B33EB8E1EC7615C00E35D1B /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B33EB501EC7547400E35D1B = {
+			isa = PBXGroup;
+			children = (
+				9B33EB5B1EC7547400E35D1B /* ClipprApp */,
+				9B33EB7B1EC7609A00E35D1B /* ClipprKeyboard */,
+				9B33EB901EC7615C00E35D1B /* Clippr */,
+				9B33EB5A1EC7547400E35D1B /* Products */,
+				BD75099C42F262AEF3762913 /* Pods */,
+				2EDEE78ED316333EC3391683 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9B33EB5A1EC7547400E35D1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB591EC7547400E35D1B /* ClipprApp.app */,
+				9B33EB7A1EC7609A00E35D1B /* ClipprKeyboard.appex */,
+				9B33EB8D1EC7615C00E35D1B /* Clippr.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B33EB5B1EC7547400E35D1B /* ClipprApp */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB741EC75FD300E35D1B /* Sources */,
+				9B33EB751EC75FD900E35D1B /* Resources */,
+				9B33EB5C1EC7547400E35D1B /* Supporting Files */,
+			);
+			path = ClipprApp;
+			sourceTree = "<group>";
+		};
+		9B33EB5C1EC7547400E35D1B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB5D1EC7547400E35D1B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B33EB741EC75FD300E35D1B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB5F1EC7547400E35D1B /* AppDelegate.h */,
+				9B33EB601EC7547400E35D1B /* AppDelegate.m */,
+				9B33EB621EC7547400E35D1B /* ViewController.h */,
+				9B33EB631EC7547400E35D1B /* ViewController.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		9B33EB751EC75FD900E35D1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB651EC7547400E35D1B /* Main.storyboard */,
+				9B33EB681EC7547400E35D1B /* Assets.xcassets */,
+				9B33EB6A1EC7547400E35D1B /* LaunchScreen.storyboard */,
+				9B33EB6D1EC7547400E35D1B /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9B33EB7B1EC7609A00E35D1B /* ClipprKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB871EC7609F00E35D1B /* Sources */,
+				9B33EB881EC760A300E35D1B /* Resources */,
+			);
+			path = ClipprKeyboard;
+			sourceTree = "<group>";
+		};
+		9B33EB871EC7609F00E35D1B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB7C1EC7609A00E35D1B /* KeyboardViewController.h */,
+				9B33EB7D1EC7609A00E35D1B /* KeyboardViewController.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		9B33EB881EC760A300E35D1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB7F1EC7609A00E35D1B /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9B33EB901EC7615C00E35D1B /* Clippr */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB9E1EC7616400E35D1B /* Sources */,
+				9B33EB9F1EC7616900E35D1B /* Resources */,
+			);
+			path = Clippr;
+			sourceTree = "<group>";
+		};
+		9B33EB9E1EC7616400E35D1B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB911EC7615C00E35D1B /* TodayViewController.h */,
+				9B33EB921EC7615C00E35D1B /* TodayViewController.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		9B33EB9F1EC7616900E35D1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EB941EC7615C00E35D1B /* MainInterface.storyboard */,
+				9B33EB971EC7615C00E35D1B /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BD75099C42F262AEF3762913 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8DEDB4C23BE605A6C39F779 /* Pods-ClipprApp.debug.xcconfig */,
+				D3CE6D3666C41B50570E15F1 /* Pods-ClipprApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B33EB581EC7547400E35D1B /* ClipprApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B33EB701EC7547400E35D1B /* Build configuration list for PBXNativeTarget "ClipprApp" */;
+			buildPhases = (
+				B728A154E0F50DF248751162 /* [CP] Check Pods Manifest.lock */,
+				9B33EB551EC7547400E35D1B /* Sources */,
+				9B33EB561EC7547400E35D1B /* Frameworks */,
+				9B33EB571EC7547400E35D1B /* Resources */,
+				310968E24EE5362CF4511907 /* [CP] Embed Pods Frameworks */,
+				E5851EA1770CD23FCED87E50 /* [CP] Copy Pods Resources */,
+				9B33EB861EC7609A00E35D1B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B33EB811EC7609A00E35D1B /* PBXTargetDependency */,
+				9B33EB991EC7615C00E35D1B /* PBXTargetDependency */,
+			);
+			name = ClipprApp;
+			productName = ClipprApp;
+			productReference = 9B33EB591EC7547400E35D1B /* ClipprApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9B33EB791EC7609A00E35D1B /* ClipprKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B33EB851EC7609A00E35D1B /* Build configuration list for PBXNativeTarget "ClipprKeyboard" */;
+			buildPhases = (
+				9B33EB761EC7609A00E35D1B /* Sources */,
+				9B33EB771EC7609A00E35D1B /* Frameworks */,
+				9B33EB781EC7609A00E35D1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClipprKeyboard;
+			productName = ClipprKeyboard;
+			productReference = 9B33EB7A1EC7609A00E35D1B /* ClipprKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		9B33EB8C1EC7615C00E35D1B /* Clippr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B33EB9B1EC7615C00E35D1B /* Build configuration list for PBXNativeTarget "Clippr" */;
+			buildPhases = (
+				9B33EB891EC7615C00E35D1B /* Sources */,
+				9B33EB8A1EC7615C00E35D1B /* Frameworks */,
+				9B33EB8B1EC7615C00E35D1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clippr;
+			productName = Clippr;
+			productReference = 9B33EB8D1EC7615C00E35D1B /* Clippr.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B33EB511EC7547400E35D1B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HSF;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = HammerSmashedFace;
+				TargetAttributes = {
+					9B33EB581EC7547400E35D1B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = HH3LM89A9A;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+					9B33EB791EC7609A00E35D1B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = HH3LM89A9A;
+						ProvisioningStyle = Automatic;
+					};
+					9B33EB8C1EC7615C00E35D1B = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = HH3LM89A9A;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9B33EB541EC7547400E35D1B /* Build configuration list for PBXProject "ClipprApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B33EB501EC7547400E35D1B;
+			productRefGroup = 9B33EB5A1EC7547400E35D1B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B33EB581EC7547400E35D1B /* ClipprApp */,
+				9B33EB791EC7609A00E35D1B /* ClipprKeyboard */,
+				9B33EB8C1EC7615C00E35D1B /* Clippr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B33EB571EC7547400E35D1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B33EB6C1EC7547400E35D1B /* LaunchScreen.storyboard in Resources */,
+				9B33EB691EC7547400E35D1B /* Assets.xcassets in Resources */,
+				9B33EB671EC7547400E35D1B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B33EB781EC7609A00E35D1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B33EB8B1EC7615C00E35D1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B33EB961EC7615C00E35D1B /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		310968E24EE5362CF4511907 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClipprApp/Pods-ClipprApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B728A154E0F50DF248751162 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E5851EA1770CD23FCED87E50 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClipprApp/Pods-ClipprApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B33EB551EC7547400E35D1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B33EB641EC7547400E35D1B /* ViewController.m in Sources */,
+				9B33EB611EC7547400E35D1B /* AppDelegate.m in Sources */,
+				9B33EB5E1EC7547400E35D1B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B33EB761EC7609A00E35D1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B33EB7E1EC7609A00E35D1B /* KeyboardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B33EB891EC7615C00E35D1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B33EB811EC7609A00E35D1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B33EB791EC7609A00E35D1B /* ClipprKeyboard */;
+			targetProxy = 9B33EB801EC7609A00E35D1B /* PBXContainerItemProxy */;
+		};
+		9B33EB991EC7615C00E35D1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B33EB8C1EC7615C00E35D1B /* Clippr */;
+			targetProxy = 9B33EB981EC7615C00E35D1B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B33EB651EC7547400E35D1B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B33EB661EC7547400E35D1B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9B33EB6A1EC7547400E35D1B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B33EB6B1EC7547400E35D1B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9B33EB941EC7615C00E35D1B /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B33EB951EC7615C00E35D1B /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B33EB6E1EC7547400E35D1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9B33EB6F1EC7547400E35D1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B33EB711EC7547400E35D1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8DEDB4C23BE605A6C39F779 /* Pods-ClipprApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HH3LM89A9A;
+				INFOPLIST_FILE = ClipprApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HammerSmashedFace.Clippr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9B33EB721EC7547400E35D1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3CE6D3666C41B50570E15F1 /* Pods-ClipprApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HH3LM89A9A;
+				INFOPLIST_FILE = ClipprApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HammerSmashedFace.Clippr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9B33EB831EC7609A00E35D1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = HH3LM89A9A;
+				INFOPLIST_FILE = ClipprKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HammerSmashedFace.Clippr.ClipprKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9B33EB841EC7609A00E35D1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = HH3LM89A9A;
+				INFOPLIST_FILE = ClipprKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HammerSmashedFace.Clippr.ClipprKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9B33EB9C1EC7615C00E35D1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = HH3LM89A9A;
+				INFOPLIST_FILE = Clippr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HammerSmashedFace.Clippr.Clippr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9B33EB9D1EC7615C00E35D1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = HH3LM89A9A;
+				INFOPLIST_FILE = Clippr/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HammerSmashedFace.Clippr.Clippr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B33EB541EC7547400E35D1B /* Build configuration list for PBXProject "ClipprApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B33EB6E1EC7547400E35D1B /* Debug */,
+				9B33EB6F1EC7547400E35D1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B33EB701EC7547400E35D1B /* Build configuration list for PBXNativeTarget "ClipprApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B33EB711EC7547400E35D1B /* Debug */,
+				9B33EB721EC7547400E35D1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B33EB851EC7609A00E35D1B /* Build configuration list for PBXNativeTarget "ClipprKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B33EB831EC7609A00E35D1B /* Debug */,
+				9B33EB841EC7609A00E35D1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9B33EB9B1EC7615C00E35D1B /* Build configuration list for PBXNativeTarget "Clippr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B33EB9C1EC7615C00E35D1B /* Debug */,
+				9B33EB9D1EC7615C00E35D1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B33EB511EC7547400E35D1B /* Project object */;
+}

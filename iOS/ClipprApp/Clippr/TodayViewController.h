@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TodayViewController.h
 //  Clippr
 //
 //  Created by Dmitry Antipenko on 5/13/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TodayViewController : UIViewController
 
 @end
-
