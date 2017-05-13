@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		947886C04A74894D404F747E /* Pods_ClipprApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ABD597C80FB269A71EA6B19 /* Pods_ClipprApp.framework */; };
+		61ADAE07C437FEEE4E8F9F64 /* Pods_ClipprApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F8998338CA4F6DEAB2DB2E /* Pods_ClipprApp.framework */; };
 		9B33EB5E1EC7547400E35D1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB5D1EC7547400E35D1B /* main.m */; };
 		9B33EB611EC7547400E35D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB601EC7547400E35D1B /* AppDelegate.m */; };
 		9B33EB641EC7547400E35D1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB631EC7547400E35D1B /* ViewController.m */; };
@@ -20,6 +20,11 @@
 		9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB921EC7615C00E35D1B /* TodayViewController.m */; };
 		9B33EB961EC7615C00E35D1B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EB941EC7615C00E35D1B /* MainInterface.storyboard */; };
 		9B33EB9A1EC7615C00E35D1B /* Clippr.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B33EB8D1EC7615C00E35D1B /* Clippr.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B33EBA11EC761CF00E35D1B /* ClipprKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EBA01EC761CF00E35D1B /* ClipprKeyboardView.xib */; };
+		9B33EBD51EC76CC900E35D1B /* HSFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */; };
+		9B33EBD61EC76CC900E35D1B /* HSFDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD41EC76CC900E35D1B /* HSFDataController.m */; };
+		9B33EBD91EC76ED200E35D1B /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
+		9B33EBDD1EC772AB00E35D1B /* HSFJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +57,19 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9B33EBC91EC7692200E35D1B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2ABD597C80FB269A71EA6B19 /* Pods_ClipprApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipprApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B33EB591EC7547400E35D1B /* ClipprApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipprApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B33EB5D1EC7547400E35D1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B33EB5F1EC7547400E35D1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,8 +90,20 @@
 		9B33EB921EC7615C00E35D1B /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		9B33EB951EC7615C00E35D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		9B33EB971EC7615C00E35D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B33EBA01EC761CF00E35D1B /* ClipprKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClipprKeyboardView.xib; sourceTree = "<group>"; };
+		9B33EBD11EC76CC900E35D1B /* HSFClipboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFClipboardItem.h; sourceTree = "<group>"; };
+		9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFClipboardItem.m; sourceTree = "<group>"; };
+		9B33EBD31EC76CC900E35D1B /* HSFDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFDataController.h; sourceTree = "<group>"; };
+		9B33EBD41EC76CC900E35D1B /* HSFDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFDataController.m; sourceTree = "<group>"; };
+		9B33EBD71EC76ED200E35D1B /* HSFEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFEventManager.h; sourceTree = "<group>"; };
+		9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFEventManager.m; sourceTree = "<group>"; };
+		9B33EBDB1EC772AB00E35D1B /* HSFJSONManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFJSONManager.h; sourceTree = "<group>"; };
+		9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFJSONManager.m; sourceTree = "<group>"; };
+		9F2E967743B4AE1AB4C8BB04 /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		D3CE6D3666C41B50570E15F1 /* Pods-ClipprApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipprApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClipprApp/Pods-ClipprApp.release.xcconfig"; sourceTree = "<group>"; };
+		F0F8998338CA4F6DEAB2DB2E /* Pods_ClipprApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipprApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8DEDB4C23BE605A6C39F779 /* Pods-ClipprApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipprApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClipprApp/Pods-ClipprApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FDF5E5B31EB8B19BD84AFDF3 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				947886C04A74894D404F747E /* Pods_ClipprApp.framework in Frameworks */,
+				61ADAE07C437FEEE4E8F9F64 /* Pods_ClipprApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +136,8 @@
 		2EDEE78ED316333EC3391683 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2ABD597C80FB269A71EA6B19 /* Pods_ClipprApp.framework */,
 				9B33EB8E1EC7615C00E35D1B /* NotificationCenter.framework */,
+				F0F8998338CA4F6DEAB2DB2E /* Pods_ClipprApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +185,8 @@
 		9B33EB741EC75FD300E35D1B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9B33EBDA1EC7729500E35D1B /* Server */,
+				9B33EBD01EC76CC200E35D1B /* Model */,
 				9B33EB5F1EC7547400E35D1B /* AppDelegate.h */,
 				9B33EB601EC7547400E35D1B /* AppDelegate.m */,
 				9B33EB621EC7547400E35D1B /* ViewController.h */,
@@ -200,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				9B33EB7F1EC7609A00E35D1B /* Info.plist */,
+				9B33EBA01EC761CF00E35D1B /* ClipprKeyboardView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -231,11 +260,35 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		9B33EBD01EC76CC200E35D1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EBD11EC76CC900E35D1B /* HSFClipboardItem.h */,
+				9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */,
+				9B33EBD31EC76CC900E35D1B /* HSFDataController.h */,
+				9B33EBD41EC76CC900E35D1B /* HSFDataController.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9B33EBDA1EC7729500E35D1B /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				9B33EBD71EC76ED200E35D1B /* HSFEventManager.h */,
+				9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */,
+				9B33EBDB1EC772AB00E35D1B /* HSFJSONManager.h */,
+				9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
 		BD75099C42F262AEF3762913 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				F8DEDB4C23BE605A6C39F779 /* Pods-ClipprApp.debug.xcconfig */,
 				D3CE6D3666C41B50570E15F1 /* Pods-ClipprApp.release.xcconfig */,
+				FDF5E5B31EB8B19BD84AFDF3 /* Pods-Shared.debug.xcconfig */,
+				9F2E967743B4AE1AB4C8BB04 /* Pods-Shared.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -254,6 +307,7 @@
 				310968E24EE5362CF4511907 /* [CP] Embed Pods Frameworks */,
 				E5851EA1770CD23FCED87E50 /* [CP] Copy Pods Resources */,
 				9B33EB861EC7609A00E35D1B /* Embed App Extensions */,
+				9B33EBC91EC7692200E35D1B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B33EBA11EC761CF00E35D1B /* ClipprKeyboardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +492,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B33EB641EC7547400E35D1B /* ViewController.m in Sources */,
+				9B33EBD61EC76CC900E35D1B /* HSFDataController.m in Sources */,
+				9B33EBD91EC76ED200E35D1B /* HSFEventManager.m in Sources */,
+				9B33EBDD1EC772AB00E35D1B /* HSFJSONManager.m in Sources */,
+				9B33EBD51EC76CC900E35D1B /* HSFClipboardItem.m in Sources */,
 				9B33EB611EC7547400E35D1B /* AppDelegate.m in Sources */,
 				9B33EB5E1EC7547400E35D1B /* main.m in Sources */,
 			);
@@ -691,6 +750,7 @@
 				9B33EB841EC7609A00E35D1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B33EB9B1EC7615C00E35D1B /* Build configuration list for PBXNativeTarget "Clippr" */ = {
 			isa = XCConfigurationList;
@@ -699,6 +759,7 @@
 				9B33EB9D1EC7615C00E35D1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,31 +7,42 @@
 //
 
 #import "TodayViewController.h"
+#import "HSFClipboardItem.h"
+
 #import <NotificationCenter/NotificationCenter.h>
 
-@interface TodayViewController () <NCWidgetProviding>
+@interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
 @end
 
 @implementation TodayViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    // Perform any setup necessary in order to update the view.
-    
-    // If an error is encountered, use NCUpdateResultFailed
-    // If there's no update required, use NCUpdateResultNoData
-    // If there's an update, use NCUpdateResultNewData
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return 1;
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return [[UITableViewCell alloc] init];
+}
+
+- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler
+{
+	NSLog(@"log");
     completionHandler(NCUpdateResultNewData);
 }
 

@@ -9,18 +9,22 @@
 #import "KeyboardViewController.h"
 
 @interface KeyboardViewController ()
+
 @property (nonatomic, strong) UIButton *nextKeyboardButton;
+
 @end
 
 @implementation KeyboardViewController
 
-- (void)updateViewConstraints {
+- (void)updateViewConstraints
+{
     [super updateViewConstraints];
     
     // Add custom view sizing constraints here
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     // Perform custom UI setup here
@@ -38,25 +42,10 @@
     [self.nextKeyboardButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated
-}
-
-- (void)textWillChange:(id<UITextInput>)textInput {
-    // The app is about to change the document's contents. Perform any preparation here.
-}
-
-- (void)textDidChange:(id<UITextInput>)textInput {
-    // The app has just changed the document's contents, the document context has been updated.
-    
-    UIColor *textColor = nil;
-    if (self.textDocumentProxy.keyboardAppearance == UIKeyboardAppearanceDark) {
-        textColor = [UIColor whiteColor];
-    } else {
-        textColor = [UIColor blackColor];
-    }
-    [self.nextKeyboardButton setTitleColor:textColor forState:UIControlStateNormal];
 }
 
 @end
