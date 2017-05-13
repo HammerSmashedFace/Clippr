@@ -16,6 +16,8 @@
 - (void)connect;
 
 - (void)copyItem:(SFClipboardItem * _Nonnull)item;
+
 - (void)getHistoryWithCompletionBlock:(void (^ _Nonnull)(NSArray * _Nonnull, SocketAckEmitter * _Nonnull))completionBlock;
+- (void)getMessageWithCompletionBlock:(void (^ _Nonnull)(NSArray * _Nonnull, SocketAckEmitter * _Nonnull))completionBlock;
 
 @end

@@ -67,8 +67,14 @@
 					 [((NSMutableArray *)self.items) addObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease]];
 				 }
 			 }];
+			[_socketManager getMessageWithCompletionBlock:^(NSArray * _Nonnull array, SocketAckEmitter * _Nonnull emmiter)
+			{
+				for (NSDictionary *itemDicitionary in array)
+				{
+					[((NSMutableArray *)self.items) addObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease]];
+				}
+			}];
 		});
-		
 	}
 	return self;
 }
@@ -87,7 +93,7 @@
 	}
 	CGKeyCode veeCode = kVK_ANSI_V;
 	CGEventRef eventDown = CGEventCreateKeyboardEvent(sourceRef, veeCode, true);
-	CGEventSetFlags(eventDown, kCGEventFlagMaskCommand|0x000008);
+	CGEventSetFlags(eventDown, kCGEventFlagMaskCommand | 0x000008);
 	CGEventRef eventUp = CGEventCreateKeyboardEvent(sourceRef, veeCode, false);
 	CGEventPost(kCGHIDEventTap, eventDown);
 	CGEventPost(kCGHIDEventTap, eventUp);

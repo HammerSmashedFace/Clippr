@@ -54,4 +54,9 @@
 	[self.socket on:@"history" callback:completionBlock];
 }
 
+- (void)getMessageWithCompletionBlock:(void (^)(NSArray * _Nonnull, SocketAckEmitter * _Nonnull))completionBlock
+{
+	[self.socket on:@"copy_text" callback:completionBlock];
+}
+
 @end

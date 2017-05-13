@@ -19,14 +19,8 @@
 
 - (void)windowDidLoad
 {
-	self.window.level = kCGCursorWindowLevel;
-}
-
-- (void)showWindow:(id)sender
-{
-	[super showWindow:sender];
-	
-	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeKey:) name:NSWindowDidBecomeKeyNotification object:nil];
+	self.window.level = kCGMainMenuWindowLevel;
+	self.window.backgroundColor = [NSColor clearColor];
 }
 
 - (IBAction)tableAction:(id)sender
@@ -35,21 +29,16 @@
 	[self.manager pasteItem:self.manager.items[[self.tableView selectedRow]]];
 }
 
-- (void)flagsChanged:(NSEvent *)event
-{
-	NSLog(@"flags");
-}
-
 - (void)moveDown:(id)sender
 {
-	if (self.tableView.selectedRow == self.manager.items.count - 1)
+	NSUInteger rowToSelect = 0;
+	NSTableView *tableView = self.tableView;
+	if (tableView.selectedRow != self.manager.items.count - 1)
 	{
-		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+		rowToSelect = tableView.selectedRow + 1;
 	}
-	else
-	{
-		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:self.tableView.selectedRow + 1] byExtendingSelection:NO];
-	}
+	[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowToSelect] byExtendingSelection:NO];
+	[tableView scrollRowToVisible:rowToSelect];
 }
 
 - (void)windowWillClose:(NSNotification *)notification
