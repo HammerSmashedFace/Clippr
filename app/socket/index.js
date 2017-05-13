@@ -1,11 +1,24 @@
 'use strict';
 
+var Text = require('../database');
+
 var events = function(io) {
 
 	io.on('connection', function(socket) {
 
 		socket.on('copy_text', function(data) {
-			socket.broadcast.emit('copy_text', data);
+			var text = new Text({
+				text: data.text,
+				date: data.date
+			});
+
+			text.save(function(error) {
+				if (error) {
+					throw error;
+				}
+
+				io.emit('copy_text', data);
+			})
 		});
 	})
 }
