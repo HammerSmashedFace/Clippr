@@ -12,8 +12,7 @@
 
 @interface HSFDataController () <HSFJSONManagerDelegate>
 
-@property (nonatomic, copy, readonly) NSMutableArray<HSFClipboardItem *> *mutableItems;
-@property (nonatomic, weak, readwrite) HSFEventManager *eventManager;
+@property (nonatomic, copy, readwrite) NSMutableArray<HSFClipboardItem *> *mutableItems;
 
 @end
 
@@ -36,17 +35,41 @@
 	return [_mutableItems copy];
 }
 
+#pragma mark -
+
 - (void)addItem:(HSFClipboardItem *)item
 {
 	[self.delegate dataController:self didReceiveItem:item];
 }
 
+- (void)fetchItems
+{
+	[self.delegate dataControllerDidReceiveFetch:self];
+}
+
 #pragma mark - HSFJSONManagerDelegate
 
-- (void)jsonManager:(HSFJSONManager *)manager didUpdateData:(NSDictionary *)data
+- (void)jsonManager:(HSFJSONManager *)manager didUpdateData:(NSArray *)data
+{
+	[self.mutableItems removeAllObjects];
+
+	for (NSDictionary *itemDictionary in data)
+	{		
+		HSFClipboardItem *newItem = [[HSFClipboardItem alloc] initWithJSONRepresentation:itemDictionary];
+
+		[self willChangeValueForKey:@"items"];
+		[self.mutableItems addObject:newItem];
+		[self didChangeValueForKey:@"items"];
+	}
+}
+
+- (void)jsonManager:(HSFJSONManager *)manager didReceiveItem:(NSDictionary *)data
 {
 	HSFClipboardItem *newItem = [[HSFClipboardItem alloc] initWithJSONRepresentation:data];
+
+	[self willChangeValueForKey:@"items"];
 	[self.mutableItems addObject:newItem];
+	[self didChangeValueForKey:@"items"];
 }
 
 @end

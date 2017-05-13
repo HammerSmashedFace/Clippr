@@ -10,7 +10,11 @@
 		36597E5E3815885D9B54265C /* Pods_Clippr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9730029DEA5356F01F08C74 /* Pods_Clippr.framework */; };
 		3C3D9F730FA8D57A62E27E77 /* Pods_ClipprApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468D4599222FCE9E15660E65 /* Pods_ClipprApp.framework */; };
 		3E5A4B88E3422831C5687C37 /* Pods_ClipprKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226DABBEAE63218A2F02EC95 /* Pods_ClipprKeyboard.framework */; };
-		8AB333EE1EC7B83A003CB82D /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB333ED1EC7B83A003CB82D /* KeyboardView.xib */; };
+		8AB333EF1EC7D1B0003CB82D /* HSFDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD41EC76CC900E35D1B /* HSFDataController.m */; };
+		8AB333F01EC7D1C1003CB82D /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
+		8AB333F11EC7D1C3003CB82D /* HSFJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */; };
+		8AB333F21EC7D1C5003CB82D /* HSFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */; };
+		8AB333F41EC7DB14003CB82D /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB333F31EC7DB14003CB82D /* KeyboardView.xib */; };
 		9B33EB5E1EC7547400E35D1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB5D1EC7547400E35D1B /* main.m */; };
 		9B33EB611EC7547400E35D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB601EC7547400E35D1B /* AppDelegate.m */; };
 		9B33EB641EC7547400E35D1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB631EC7547400E35D1B /* ViewController.m */; };
@@ -31,6 +35,8 @@
 		9B33EBE01EC7914C00E35D1B /* HSFDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD41EC76CC900E35D1B /* HSFDataController.m */; };
 		9B33EBE11EC7915400E35D1B /* HSFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */; };
 		9B60B2361EC7939D007F1525 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B60B2351EC7939D007F1525 /* SocketIO.framework */; };
+		9B610A621EC7C31100274082 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B610A611EC7C31100274082 /* CustomTableViewCell.xib */; };
+		9B610A651EC7C3AB00274082 /* HSFCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */; };
 		9BED134C1EC79482002A7D74 /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +88,7 @@
 		5926B2CA26288B50C0F47845 /* Pods-ClipprKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipprKeyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClipprKeyboard/Pods-ClipprKeyboard.release.xcconfig"; sourceTree = "<group>"; };
 		6B26691BA5F279BBEBBC1480 /* Pods-Clippr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clippr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clippr/Pods-Clippr.debug.xcconfig"; sourceTree = "<group>"; };
 		8AB333EC1EC7A940003CB82D /* ClipprKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipprKeyboard.entitlements; sourceTree = "<group>"; };
-		8AB333ED1EC7B83A003CB82D /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
+		8AB333F31EC7DB14003CB82D /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		9B33EB591EC7547400E35D1B /* ClipprApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipprApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B33EB5D1EC7547400E35D1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B33EB5F1EC7547400E35D1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +118,9 @@
 		9B33EBDB1EC772AB00E35D1B /* HSFJSONManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFJSONManager.h; sourceTree = "<group>"; };
 		9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFJSONManager.m; sourceTree = "<group>"; };
 		9B60B2351EC7939D007F1525 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = "../../../../Shared/ClipprApp-drksqrcebnmlzhcewjnalnnyqmlj/Build/Products/Debug-iphonesimulator/Socket.IO-Client-Swift/SocketIO.framework"; sourceTree = "<group>"; };
+		9B610A611EC7C31100274082 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		9B610A631EC7C3AB00274082 /* HSFCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFCustomTableViewCell.h; sourceTree = "<group>"; };
+		9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFCustomTableViewCell.m; sourceTree = "<group>"; };
 		9F2E967743B4AE1AB4C8BB04 /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		A9730029DEA5356F01F08C74 /* Pods_Clippr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clippr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3FDBCA9D1B48C2B481ACE6C /* Pods-Clippr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clippr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clippr/Pods-Clippr.release.xcconfig"; sourceTree = "<group>"; };
@@ -249,7 +258,7 @@
 		9B33EB881EC760A300E35D1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8AB333ED1EC7B83A003CB82D /* KeyboardView.xib */,
+				8AB333F31EC7DB14003CB82D /* KeyboardView.xib */,
 				9B33EB7F1EC7609A00E35D1B /* Info.plist */,
 			);
 			name = Resources;
@@ -269,6 +278,8 @@
 			children = (
 				9B33EB911EC7615C00E35D1B /* TodayViewController.h */,
 				9B33EB921EC7615C00E35D1B /* TodayViewController.m */,
+				9B610A631EC7C3AB00274082 /* HSFCustomTableViewCell.h */,
+				9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -276,6 +287,7 @@
 		9B33EB9F1EC7616900E35D1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B610A611EC7C31100274082 /* CustomTableViewCell.xib */,
 				9B33EB941EC7615C00E35D1B /* MainInterface.storyboard */,
 				9B33EB971EC7615C00E35D1B /* Info.plist */,
 			);
@@ -459,7 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AB333EE1EC7B83A003CB82D /* KeyboardView.xib in Resources */,
+				8AB333F41EC7DB14003CB82D /* KeyboardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B610A621EC7C31100274082 /* CustomTableViewCell.xib in Resources */,
 				9B33EB961EC7615C00E35D1B /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +614,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B33EB7E1EC7609A00E35D1B /* KeyboardViewController.m in Sources */,
+				8AB333F11EC7D1C3003CB82D /* HSFJSONManager.m in Sources */,
+				8AB333F21EC7D1C5003CB82D /* HSFClipboardItem.m in Sources */,
+				8AB333EF1EC7D1B0003CB82D /* HSFDataController.m in Sources */,
+				8AB333F01EC7D1C1003CB82D /* HSFEventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +627,7 @@
 			files = (
 				9BED134C1EC79482002A7D74 /* HSFEventManager.m in Sources */,
 				9B33EBE01EC7914C00E35D1B /* HSFDataController.m in Sources */,
+				9B610A651EC7C3AB00274082 /* HSFCustomTableViewCell.m in Sources */,
 				9B33EBE11EC7915400E35D1B /* HSFClipboardItem.m in Sources */,
 				9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */,
 				9B33EBDF1EC7914800E35D1B /* HSFJSONManager.m in Sources */,

@@ -15,6 +15,7 @@
 @protocol HSFDataControllerDelegate <NSObject>
 
 - (void)dataController:(HSFDataController *)controller didReceiveItem:(HSFClipboardItem *)item;
+- (void)dataControllerDidReceiveFetch:(HSFDataController *)controller;
 
 @end
 
@@ -24,5 +25,6 @@
 @property (nonatomic, weak, readwrite) id<HSFDataControllerDelegate> delegate;
 
 - (void)addItem:(HSFClipboardItem *)item;
+- (void)fetchItems;
 
 @end

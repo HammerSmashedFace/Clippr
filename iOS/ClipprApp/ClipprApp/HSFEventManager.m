@@ -12,11 +12,12 @@
 
 #import <SocketIO/Socket.IO-Client-Swift-umbrella.h>
 
-static NSString *const kHSFEventManagerSocketURL = @"crowley-m-pc.zeo.lcl:3000";
+static NSString *const kHSFEventManagerSocketURL = @"http://crowley-m-pc.zeo.lcl:3000";
 
 @interface HSFEventManager () <HSFDataControllerDelegate>
 
 @property (nonatomic, strong, readwrite) SocketIOClient *socketClient;
+@property (nonatomic, assign, readwrite, getter=isConnected) BOOL connected;
 
 @end
 
@@ -29,6 +30,7 @@ static NSString *const kHSFEventManagerSocketURL = @"crowley-m-pc.zeo.lcl:3000";
 	if (self != nil)
 	{
 		NSURL *socketURL = [NSURL URLWithString:kHSFEventManagerSocketURL];
+		_connected = NO;
 		_socketClient = [[SocketIOClient alloc] initWithSocketURL:socketURL config:@{@"log": @YES, @"forcePolling": @YES}];
 
 		[_socketClient connect];
@@ -37,25 +39,53 @@ static NSString *const kHSFEventManagerSocketURL = @"crowley-m-pc.zeo.lcl:3000";
 	return self;
 }
 
+- (void)dealloc
+{
+	[self.socketClient disconnect];
+}
+
 - (void)configureSocket
 {
 	[self.socketClient on:@"connect" callback:^(NSArray *data, SocketAckEmitter *ack)
 	{
+		self.connected = YES;
+		[self.socketClient emit:@"history" with:@[]];
 		NSLog(@"socket connected");
 	}];
 
 	[self.socketClient on:@"copy_text" callback:^(NSArray *data, SocketAckEmitter *ack)
 	{
-		if ([data.firstObject isKindOfClass:[NSDictionary class]])
+		if (self.connected && data != nil)
 		{
 			[self.delegate eventManager:self didReceiveData:data.firstObject];
 		}
 	}];
+
+	[self.socketClient on:@"history" callback:^(NSArray *data, SocketAckEmitter *ack)
+	{
+		if (self.connected && data != nil)
+		{
+			[self.delegate eventManager:self didFetchHistory:data.firstObject];
+		}
+	}];
+}
+
+#pragma mark - HSFDataControllerDelegate
+
+- (void)dataControllerDidReceiveFetch:(HSFDataController *)controller
+{
+	if (self.connected)
+	{
+		[self.socketClient emit:@"history" with:@[]];
+	}
 }
 
 - (void)dataController:(HSFDataController *)controller didReceiveItem:(HSFClipboardItem *)item
 {
-	[self.socketClient emit:@"copy_text" with:@[ [item jsonRepresentation] ]];
+	if (self.connected)
+	{
+		[self.socketClient emit:@"copy_text" with:@[ [item jsonRepresentation] ]];
+	}
 }
 
 @end

@@ -12,7 +12,12 @@
 #import "HSFJSONManager.h"
 #import "HSFClipboardItem.h"
 
+#import "HSFCustomTableViewCell.h"
+
 #import <NotificationCenter/NotificationCenter.h>
+
+NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
+NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 @interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource>
 
@@ -21,21 +26,53 @@
 @property (nonatomic, strong, readwrite) HSFEventManager *eventManager;
 @property (nonatomic, strong, readwrite) HSFJSONManager *jsonManager;
 
+@property (nonatomic, strong, readonly) NSArray<HSFClipboardItem *> *items;
+
 @end
 
 @implementation TodayViewController
 
 - (void)viewDidLoad
 {
+	[super viewDidLoad];
+
+	self.preferredContentSize = CGSizeMake(0, 300);
+
 	self.dataController = [[HSFDataController alloc] init];
 	self.eventManager = [[HSFEventManager alloc] init];
 	self.jsonManager = [[HSFJSONManager alloc] init];
+
+	[self.eventManager configureSocket];
 
 	self.dataController.delegate = (id<HSFDataControllerDelegate>)self.eventManager;
 	self.eventManager.delegate = (id<HSFEventManagerDelegate>)self.jsonManager;
 	self.jsonManager.delegate = (id<HSFJSONManagerDelegate>)self.dataController;
 
-    [super viewDidLoad];
+	[self.dataController addObserver:self forKeyPath:@"items" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:&kHSFTodayViewControllerContext];
+}
+
+- (void)dealloc
+{
+	[_dataController removeObserver:self forKeyPath:@"items"];
+}
+
+- (NSArray<HSFClipboardItem *> *)items
+{
+	NSArray *result = nil;
+
+	if (self.dataController.items.count != 0)
+	{
+		NSInteger itemsCount = self.dataController.items.count;
+		NSInteger rangeLength = itemsCount > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : itemsCount;
+		NSInteger rangeLocation = itemsCount > kHSFTodayViewControllerMaxItems ? itemsCount - kHSFTodayViewControllerMaxItems : 0;
+		NSRange indexesRange = NSMakeRange(rangeLocation, rangeLength);
+		NSArray *rangedItems = [self.dataController.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:indexesRange]];
+
+		NSSortDescriptor *sortDescripted = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+		result = [rangedItems sortedArrayUsingDescriptors:@[sortDescripted]];
+	}
+	
+	return result;
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,20 +80,53 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - UITableView methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 50;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 1;
+	return kHSFTodayViewControllerMaxItems;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return [[UITableViewCell alloc] init];
+	HSFCustomTableViewCell *cell = (HSFCustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kHSFCustomTableViewCellIdentifier];
+
+	if (cell == nil)
+	{
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+		cell = [nib objectAtIndex:0];
+		
+//		cell = [[HSFCustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kHSFCustomTableViewCellIdentifier];
+	}
+
+	HSFClipboardItem *clipboardItem = [self.items objectAtIndex:indexPath.row];
+	cell.textLabel.text = clipboardItem.text;
+
+	return cell;
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler
 {
-	NSLog(@"log");
     completionHandler(NCUpdateResultNewData);
+}
+
+#pragma mark - Observing
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+	if (context == &kHSFTodayViewControllerContext && [keyPath isEqualToString:@"items"])
+	{
+		[self.itemsTableView reloadData];
+	}
+	else
+	{
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	}
 }
 
 @end
