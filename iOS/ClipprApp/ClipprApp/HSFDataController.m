@@ -41,6 +41,11 @@
 	[self.delegate dataController:self didReceiveItem:item];
 }
 
+- (void)fetchItems
+{
+	[self.delegate dataControllerDidReceiveFetch:self];
+}
+
 #pragma mark - HSFJSONManagerDelegate
 
 - (void)jsonManager:(HSFJSONManager *)manager didUpdateData:(NSDictionary *)data
