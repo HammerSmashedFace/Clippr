@@ -57,6 +57,8 @@ public class SocketController {
             }
         });
         socket.connect();
+
+        Log.v("SocketController", Boolean.toString(socket.connected()));
     }
 
     public void fetchHistory() {
