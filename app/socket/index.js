@@ -19,7 +19,7 @@ var events = function(io) {
 				}
 
 				io.emit('copy_text', text);
-			})
+			});
 		});
 
 		socket.on('history', function(data) {
@@ -29,9 +29,9 @@ var events = function(io) {
 				}
 
 				socket.emit('history', text);
-			})
+			});
 		});
-	})
+	});
 }
 
 var init = function(app) {
