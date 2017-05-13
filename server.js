@@ -1,9 +1,9 @@
 'use strict';
 
 var app = require('express')();
-var server = require('http').Server(app);
-var socket = require('socket.io')(server);
 var bodyParser = require('body-parser');
+
+var server = require('./app/socket')(app);
 
 var port = process.env.PORT || 3000;
 
@@ -14,6 +14,4 @@ app.get('/', function(request, responce) {
 	responce.send("Hello world");
 });
 
-server.listen(port, function() {
-	console.log('Server started at port ' + port);
-});
+server.listen(port);
