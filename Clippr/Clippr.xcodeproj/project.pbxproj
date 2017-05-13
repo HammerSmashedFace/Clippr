@@ -16,9 +16,14 @@
 		BD923B0E1EC7102C00DDDDB4 /* SFWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923B0C1EC7102C00DDDDB4 /* SFWindowController.m */; };
 		BD923B0F1EC7102C00DDDDB4 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD923B0D1EC7102C00DDDDB4 /* Window.xib */; };
 		BD923B131EC716B300DDDDB4 /* SFWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923B121EC716B300DDDDB4 /* SFWindow.m */; };
+		BD94C1A21EC77B7600413F1B /* SFSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD94C1A11EC77B7600413F1B /* SFSocketManager.m */; };
+		CCF1E96497E82693C4D29D25 /* Pods_Clippr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A728C910678C29C6234FF93 /* Pods_Clippr.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A728C910678C29C6234FF93 /* Pods_Clippr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clippr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D776F1FD19F7EE7290D7855 /* Pods-Clippr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clippr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clippr/Pods-Clippr.release.xcconfig"; sourceTree = "<group>"; };
+		A7DCB254653B5973714110B4 /* Pods-Clippr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clippr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clippr/Pods-Clippr.debug.xcconfig"; sourceTree = "<group>"; };
 		BD386E9A1EC6F2F300E15EF3 /* Clippr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clippr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD386E9D1EC6F2F300E15EF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD386E9E1EC6F2F300E15EF3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,6 +41,8 @@
 		BD923B0D1EC7102C00DDDDB4 /* Window.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Window.xib; sourceTree = "<group>"; };
 		BD923B111EC716B300DDDDB4 /* SFWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFWindow.h; sourceTree = "<group>"; };
 		BD923B121EC716B300DDDDB4 /* SFWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWindow.m; sourceTree = "<group>"; };
+		BD94C1A01EC77B7600413F1B /* SFSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFSocketManager.h; sourceTree = "<group>"; };
+		BD94C1A11EC77B7600413F1B /* SFSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSocketManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +50,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF1E96497E82693C4D29D25 /* Pods_Clippr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6804C10F3BB1CBD2C991AF54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A728C910678C29C6234FF93 /* Pods_Clippr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD386E911EC6F2F200E15EF3 = {
 			isa = PBXGroup;
 			children = (
 				BD386E9C1EC6F2F300E15EF3 /* Clippr */,
 				BD386E9B1EC6F2F300E15EF3 /* Products */,
+				D4FF50149D6267D0EC43E3BE /* Pods */,
+				6804C10F3BB1CBD2C991AF54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +116,8 @@
 				BD923B031EC6FABE00DDDDB4 /* Items */,
 				BD923AFA1EC6F91000DDDDB4 /* SFClipboardManager.h */,
 				BD923AFB1EC6F91000DDDDB4 /* SFClipboardManager.m */,
+				BD94C1A01EC77B7600413F1B /* SFSocketManager.h */,
+				BD94C1A11EC77B7600413F1B /* SFSocketManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -128,6 +148,15 @@
 			name = Sources;
 			sourceTree = "<group>";
 		};
+		D4FF50149D6267D0EC43E3BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7DCB254653B5973714110B4 /* Pods-Clippr.debug.xcconfig */,
+				2D776F1FD19F7EE7290D7855 /* Pods-Clippr.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD386EAE1EC6F2F300E15EF3 /* Build configuration list for PBXNativeTarget "Clippr" */;
 			buildPhases = (
+				126299F7BB66589C7F007A68 /* [CP] Check Pods Manifest.lock */,
 				BD386E961EC6F2F300E15EF3 /* Sources */,
 				BD386E971EC6F2F300E15EF3 /* Frameworks */,
 				BD386E981EC6F2F300E15EF3 /* Resources */,
+				5C1C99C854ADD549C389BCDE /* [CP] Embed Pods Frameworks */,
+				4D4F30BF943A0A9A6254D9BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,12 +226,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		126299F7BB66589C7F007A68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4D4F30BF943A0A9A6254D9BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Clippr/Pods-Clippr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C1C99C854ADD549C389BCDE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Clippr/Pods-Clippr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD386E961EC6F2F300E15EF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BD923B0E1EC7102C00DDDDB4 /* SFWindowController.m in Sources */,
+				BD94C1A21EC77B7600413F1B /* SFSocketManager.m in Sources */,
 				BD923B021EC6FAB700DDDDB4 /* SFImageClipboardItem.m in Sources */,
 				BD386EA21EC6F2F300E15EF3 /* main.m in Sources */,
 				BD923AFF1EC6F99900DDDDB4 /* SFClipboardItem.m in Sources */,
@@ -303,6 +384,7 @@
 		};
 		BD386EAF1EC6F2F300E15EF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7DCB254653B5973714110B4 /* Pods-Clippr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -317,6 +399,7 @@
 		};
 		BD386EB01EC6F2F300E15EF3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D776F1FD19F7EE7290D7855 /* Pods-Clippr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;

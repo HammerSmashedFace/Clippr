@@ -1,3 +1,0 @@
-[submodule "Dependencies/Sockets"]
-	path = Dependencies/Sockets
-	url = git@github.com:socketio/socket.io-client-swift.git

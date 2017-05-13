@@ -25,10 +25,9 @@
 - (NSDictionary *)dictionaryRepresentation
 {
 	return @{
-	  @"name" : self.name,
+	  @"text" : self.name,
 	  @"source" : self.source.localizedName,
-	  @"type" : self.type,
-	  @"date" : self.creationDate};
+	  @"type" : self.type};
 }
 
 - (id)copyWithZone:(NSZone *)zone

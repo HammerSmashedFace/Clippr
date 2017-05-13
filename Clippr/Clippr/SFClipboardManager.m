@@ -8,6 +8,7 @@
 
 #import "SFClipboardManager.h"
 #import "SFClipboardItem.h"
+#import "SFSocketManager.h"
 
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
@@ -17,6 +18,7 @@
 @property (nonatomic, retain) NSPasteboard *pasteboard;
 @property (nonatomic, retain) NSMutableArray <__kindof SFClipboardItem *> *items;
 @property (nonatomic) NSUInteger lastChangeCount;
+@property (nonatomic, retain) SFSocketManager *socketManager;
 
 @end
 
@@ -28,6 +30,8 @@
 	if (self)
 	{
 		_lastChangeCount = self.pasteboard.changeCount;
+		_socketManager = [[SFSocketManager alloc] init];
+		[_socketManager connect];
 		[NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer)
 		{
 			if (self.pasteboard.changeCount > self.lastChangeCount)
@@ -45,6 +49,7 @@
 				}
 				SFClipboardItem *item = [[SFClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
 				item.type = NSPasteboardTypeString;
+				[self.socketManager copyItem:item];
 				[((NSMutableArray *)[self items]) addObject:item];
 				[item release];
 				[self didChangeValueForKey:@"items"];
