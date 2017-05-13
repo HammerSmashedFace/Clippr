@@ -28,7 +28,7 @@
 
 - (instancetype)initWithDictionaryRepresentation:(NSDictionary *)dictionaryRepresentation
 {
-	NSRunningApplication *runningApplication = [NSRunningApplication runningApplicationsWithBundleIdentifier:dictionaryRepresentation[@"bundleID"]].firstObject;
+	NSRunningApplication *runningApplication = [NSRunningApplication runningApplicationsWithBundleIdentifier:dictionaryRepresentation[@"bundleID"] ?: @""].firstObject;
 	self = [self initWithName:dictionaryRepresentation[@"text"] source:runningApplication];
 	if (self)
 	{

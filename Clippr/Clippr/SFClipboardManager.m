@@ -51,28 +51,27 @@
 					}
 				}
 				
-				NSString *type = [self.pasteboard availableTypeFromArray:self.pasteboard.types];
-				
 				SFClipboardItem *item = nil;
 				
 				if ([self.pasteboard canReadObjectForClasses:@[[NSImage class]] options:nil])
 				{
 					SFImageClipboardItem *imageItem = [[SFImageClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
 					imageItem.image = [[[NSImage alloc] initWithData:[self.pasteboard dataForType:NSPasteboardTypeTIFF]] autorelease];
+					imageItem.type = NSPasteboardTypeTIFF;
 					item = imageItem;
 				}
 				else if ([self.pasteboard canReadObjectForClasses:@[[NSAttributedString class]] options:nil])
 				{
 					SFRTFClipboardItem *RTFClipboardItem = [[SFRTFClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
 					RTFClipboardItem.attributedString = [[[NSAttributedString alloc] initWithRTF:[self.pasteboard dataForType:NSPasteboardTypeRTF] documentAttributes:nil] autorelease];
+					RTFClipboardItem.type = NSPasteboardTypeRTF;
 					item = RTFClipboardItem;
 				}
 				else if ([self.pasteboard canReadObjectForClasses:@[[NSString class]] options:nil])
 				{
 					item = [[SFClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
+					item.type = NSPasteboardTypeString;
 				}
-
-				item.type = type;
 				[self.socketManager copyItem:item];
 				[((NSMutableArray *)[self items]) insertObject:item atIndex:0];
 				[item release];
@@ -105,7 +104,7 @@
 - (void)pasteItem:(__kindof SFClipboardItem *)item
 {
 	self.lastChangeCount++;
-	[self.pasteboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
+	[self.pasteboard declareTypes:[NSArray arrayWithObject:item.type ?: NSStringPboardType] owner:nil];
 	[self.pasteboard setString:item.name forType:item.type];
 	
 	CGEventSourceRef sourceRef = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
