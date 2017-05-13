@@ -20,6 +20,16 @@ var events = function(io) {
 				io.emit('copy_text', data);
 			})
 		});
+
+		socket.on('history', function(data) {
+			Text.find({}, function(error, text) {
+				if (error) {
+					throw error;
+				}
+
+				socket.emit('history', text);
+			})
+		});
 	})
 }
 
