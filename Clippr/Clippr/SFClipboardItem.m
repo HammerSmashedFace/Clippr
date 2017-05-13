@@ -61,4 +61,9 @@
 	return self.name;
 }
 
+- (id)valueForUndefinedKey:(NSString *)key
+{
+	return nil;
+}
+
 @end

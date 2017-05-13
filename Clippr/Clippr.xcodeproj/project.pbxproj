@@ -17,6 +17,7 @@
 		BD923B0F1EC7102C00DDDDB4 /* Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD923B0D1EC7102C00DDDDB4 /* Window.xib */; };
 		BD923B131EC716B300DDDDB4 /* SFWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923B121EC716B300DDDDB4 /* SFWindow.m */; };
 		BD94C1A21EC77B7600413F1B /* SFSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD94C1A11EC77B7600413F1B /* SFSocketManager.m */; };
+		BD94C1A51EC7B6BA00413F1B /* SFRTFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BD94C1A41EC7B6BA00413F1B /* SFRTFClipboardItem.m */; };
 		CCF1E96497E82693C4D29D25 /* Pods_Clippr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A728C910678C29C6234FF93 /* Pods_Clippr.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		BD923B121EC716B300DDDDB4 /* SFWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFWindow.m; sourceTree = "<group>"; };
 		BD94C1A01EC77B7600413F1B /* SFSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFSocketManager.h; sourceTree = "<group>"; };
 		BD94C1A11EC77B7600413F1B /* SFSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSocketManager.m; sourceTree = "<group>"; };
+		BD94C1A31EC7B6BA00413F1B /* SFRTFClipboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFRTFClipboardItem.h; sourceTree = "<group>"; };
+		BD94C1A41EC7B6BA00413F1B /* SFRTFClipboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFRTFClipboardItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				BD923AFE1EC6F99900DDDDB4 /* SFClipboardItem.m */,
 				BD923B001EC6FAB700DDDDB4 /* SFImageClipboardItem.h */,
 				BD923B011EC6FAB700DDDDB4 /* SFImageClipboardItem.m */,
+				BD94C1A31EC7B6BA00413F1B /* SFRTFClipboardItem.h */,
+				BD94C1A41EC7B6BA00413F1B /* SFRTFClipboardItem.m */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				BD386EA21EC6F2F300E15EF3 /* main.m in Sources */,
 				BD923AFF1EC6F99900DDDDB4 /* SFClipboardItem.m in Sources */,
 				BD386E9F1EC6F2F300E15EF3 /* AppDelegate.m in Sources */,
+				BD94C1A51EC7B6BA00413F1B /* SFRTFClipboardItem.m in Sources */,
 				BD923B131EC716B300DDDDB4 /* SFWindow.m in Sources */,
 				BD923AFC1EC6F91000DDDDB4 /* SFClipboardManager.m in Sources */,
 			);

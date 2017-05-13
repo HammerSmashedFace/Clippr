@@ -8,6 +8,8 @@
 
 #import "SFClipboardManager.h"
 #import "SFClipboardItem.h"
+#import "SFImageClipboardItem.h"
+#import "SFRTFClipboardItem.h"
 #import "SFSocketManager.h"
 
 #import <Cocoa/Cocoa.h>
@@ -48,10 +50,31 @@
 						break;
 					}
 				}
-				SFClipboardItem *item = [[SFClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
-				item.type = NSPasteboardTypeString;
+				
+				NSString *type = [self.pasteboard availableTypeFromArray:self.pasteboard.types];
+				
+				SFClipboardItem *item = nil;
+				
+				if ([self.pasteboard canReadObjectForClasses:@[[NSImage class]] options:nil])
+				{
+					SFImageClipboardItem *imageItem = [[SFImageClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
+					imageItem.image = [[[NSImage alloc] initWithData:[self.pasteboard dataForType:NSPasteboardTypeTIFF]] autorelease];
+					item = imageItem;
+				}
+				else if ([self.pasteboard canReadObjectForClasses:@[[NSAttributedString class]] options:nil])
+				{
+					SFRTFClipboardItem *RTFClipboardItem = [[SFRTFClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
+					RTFClipboardItem.attributedString = [[[NSAttributedString alloc] initWithRTF:[self.pasteboard dataForType:NSPasteboardTypeRTF] documentAttributes:nil] autorelease];
+					item = RTFClipboardItem;
+				}
+				else if ([self.pasteboard canReadObjectForClasses:@[[NSString class]] options:nil])
+				{
+					item = [[SFClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
+				}
+
+				item.type = type;
 				[self.socketManager copyItem:item];
-				[((NSMutableArray *)[self items]) addObject:item];
+				[((NSMutableArray *)[self items]) insertObject:item atIndex:0];
 				[item release];
 				[self didChangeValueForKey:@"items"];
 			}
@@ -64,14 +87,14 @@
 			 {
 				 for (NSDictionary *itemDicitionary in array.firstObject)
 				 {
-					 [((NSMutableArray *)self.items) addObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease]];
+					 [((NSMutableArray *)self.items) insertObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease] atIndex:0];
 				 }
 			 }];
 			[_socketManager getMessageWithCompletionBlock:^(NSArray * _Nonnull array, SocketAckEmitter * _Nonnull emmiter)
 			{
 				for (NSDictionary *itemDicitionary in array)
 				{
-					[((NSMutableArray *)self.items) addObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease]];
+					[((NSMutableArray *)self.items) insertObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease] atIndex:0];
 				}
 			}];
 		});
