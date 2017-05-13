@@ -36,7 +36,7 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 {
 	[super viewDidLoad];
 
-	self.preferredContentSize = CGSizeMake(0, 300);
+	self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
 
 	self.dataController = [[HSFDataController alloc] init];
 	self.eventManager = [[HSFEventManager alloc] init];
@@ -58,7 +58,7 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 - (NSArray<HSFClipboardItem *> *)items
 {
-	NSArray *result = nil;
+	NSMutableArray *result = [NSMutableArray array];
 
 	if (self.dataController.items.count != 0)
 	{
@@ -69,7 +69,7 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 		NSArray *rangedItems = [self.dataController.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:indexesRange]];
 
 		NSSortDescriptor *sortDescripted = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-		result = [rangedItems sortedArrayUsingDescriptors:@[sortDescripted]];
+		[result addObjectsFromArray:[rangedItems sortedArrayUsingDescriptors:@[sortDescripted]]];
 	}
 	
 	return result;
@@ -84,12 +84,12 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 50;
+	return 82.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return kHSFTodayViewControllerMaxItems;
+	return self.items.count > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,12 +100,14 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	{
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
 		cell = [nib objectAtIndex:0];
-		
-//		cell = [[HSFCustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kHSFCustomTableViewCellIdentifier];
 	}
 
-	HSFClipboardItem *clipboardItem = [self.items objectAtIndex:indexPath.row];
-	cell.textLabel.text = clipboardItem.text;
+	NSArray *items = self.items;
+	if (items.count > 0)
+	{
+		HSFClipboardItem *clipboardItem = [items objectAtIndex:indexPath.row];
+		cell.textLabel.text = clipboardItem.text;
+	}
 
 	return cell;
 }
@@ -113,6 +115,18 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler
 {
     completionHandler(NCUpdateResultNewData);
+}
+
+- (void)widgetActiveDisplayModeDidChange:(NCWidgetDisplayMode)activeDisplayMode withMaximumSize:(CGSize)maxSize
+{
+	if (activeDisplayMode == NCWidgetDisplayModeExpanded)
+	{
+		self.preferredContentSize = CGSizeMake(0.0, 245.0);
+	}
+	else if (activeDisplayMode == NCWidgetDisplayModeCompact)
+	{
+		self.preferredContentSize = CGSizeMake(0.0, 82.0);
+	}
 }
 
 #pragma mark - Observing
