@@ -40,11 +40,18 @@
 	
 	[socket connect];
 	self.socket = socket;
+	[self.socket emit:@"history" with:@[]];
 }
 
 - (void)copyItem:(SFClipboardItem *)item
 {
 	[self.socket emit:@"copy_text" with:@[item.dictionaryRepresentation]];
+}
+
+- (void)getHistoryWithCompletionBlock:(void (^ _Nonnull)(NSArray * _Nonnull, SocketAckEmitter * _Nonnull))completionBlock
+{
+	[self.socket emit:@"history" with:@[]];
+	[self.socket on:@"history" callback:completionBlock];
 }
 
 @end

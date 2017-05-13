@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSDate *creationDate;
 
 - (instancetype)initWithName:(NSString *)name source:(NSRunningApplication *)source;
+
+- (instancetype)initWithDictionaryRepresentation:(NSDictionary *)dictionaryRepresentation;
 - (NSDictionary *)dictionaryRepresentation;
 
 @end

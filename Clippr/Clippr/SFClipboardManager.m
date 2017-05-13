@@ -32,6 +32,7 @@
 		_lastChangeCount = self.pasteboard.changeCount;
 		_socketManager = [[SFSocketManager alloc] init];
 		[_socketManager connect];
+		
 		[NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer)
 		{
 			if (self.pasteboard.changeCount > self.lastChangeCount)
@@ -56,6 +57,18 @@
 			}
 			self.lastChangeCount = self.pasteboard.changeCount;
 		}];
+		
+		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+		{
+			[_socketManager getHistoryWithCompletionBlock:^(NSArray * _Nonnull array, SocketAckEmitter * _Nonnull emmiter)
+			 {
+				 for (NSDictionary *itemDicitionary in array.firstObject)
+				 {
+					 [((NSMutableArray *)self.items) addObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease]];
+				 }
+			 }];
+		});
+		
 	}
 	return self;
 }

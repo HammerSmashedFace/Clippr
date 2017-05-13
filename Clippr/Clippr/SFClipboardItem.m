@@ -8,6 +8,10 @@
 
 #import "SFClipboardItem.h"
 
+@interface SFClipboardItem()
+
+@end
+
 @implementation SFClipboardItem
 
 - (instancetype)initWithName:(NSString *)name source:(NSRunningApplication *)source
@@ -22,11 +26,24 @@
 	return self;
 }
 
+- (instancetype)initWithDictionaryRepresentation:(NSDictionary *)dictionaryRepresentation
+{
+	NSRunningApplication *runningApplication = [NSRunningApplication runningApplicationsWithBundleIdentifier:dictionaryRepresentation[@"bundleID"]].firstObject;
+	self = [self initWithName:dictionaryRepresentation[@"text"] source:runningApplication];
+	if (self)
+	{
+		_creationDate = [[NSDate dateWithTimeIntervalSince1970:[dictionaryRepresentation[@"timestamp"] doubleValue]] retain];
+		_type = [NSPasteboardTypeString copy];
+	}
+	return self;
+}
+
 - (NSDictionary *)dictionaryRepresentation
 {
 	return @{
 	  @"text" : self.name,
-	  @"source" : self.source.localizedName,
+	  @"bundleID" : self.source.bundleIdentifier,
+	  @"timestamp" : [NSString stringWithFormat:@"%f", [self.creationDate timeIntervalSince1970]],
 	  @"type" : self.type};
 }
 
