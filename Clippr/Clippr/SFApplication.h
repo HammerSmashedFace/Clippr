@@ -13,4 +13,6 @@
 @property (nonatomic, copy) NSString *localizedName;
 @property (nonatomic, copy) NSImage *icon;
 
+- (NSDictionary *)dictionaryRepresentation;
+
 @end

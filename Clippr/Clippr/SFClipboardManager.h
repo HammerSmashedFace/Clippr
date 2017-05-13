@@ -11,6 +11,7 @@
 
 @interface SFClipboardManager : NSObject
 
-@property (nonatomic, retain) NSArray <__kindof SFClipboardItem *> *items;
+@property (nonatomic, retain, readonly) NSArray <__kindof SFClipboardItem *> *items;
+- (void)pasteItem:(__kindof SFClipboardItem *)item;
 
 @end

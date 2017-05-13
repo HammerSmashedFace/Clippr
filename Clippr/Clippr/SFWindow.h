@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SFWindow.h
 //  Clippr
 //
 //  Created by Viktor Radulov on 5/13/17.
@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
-
+@interface SFWindow : NSWindow
 
 @end
-

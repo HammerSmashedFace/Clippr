@@ -10,4 +10,10 @@
 
 @implementation SFApplication
 
+- (NSDictionary *)dictionaryRepresentation
+{
+	return @{@"appName" : self.localizedName,
+			 @"appIcon" : self.icon};
+}
+
 @end

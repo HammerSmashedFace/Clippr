@@ -6,14 +6,15 @@
 //  Copyright © 2017 HammerSmashedFace. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-@class SFApplication;
+#import <Cocoa/Cocoa.h>
 
-@interface SFClipboardItem : NSObject
+@interface SFClipboardItem : NSObject <NSCopying, NSPasteboardWriting>
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, retain) SFApplication *source;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, retain) NSRunningApplication *source;
 
+- (instancetype)initWithName:(NSString *)name source:(NSRunningApplication *)source;
 - (NSDictionary *)dictionaryRepresentation;
 
 @end
