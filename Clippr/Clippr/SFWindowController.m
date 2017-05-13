@@ -7,8 +7,11 @@
 //
 
 #import "SFWindowController.h"
+#import "SFClipboardManager.h"
+#import "SFClipboardItem.h"
 
 @interface SFWindowController () <NSWindowDelegate>
+@property (assign) IBOutlet NSTableView *tableView;
 
 @end
 
@@ -26,14 +29,32 @@
 	[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeKey:) name:NSWindowDidBecomeKeyNotification object:nil];
 }
 
-- (void)windowDidBecomeKey:(NSNotification *)notification
+- (IBAction)tableAction:(id)sender
 {
-//	[self close];
+	[self.window orderOut:nil];
+	[self.manager pasteItem:self.manager.items[[self.tableView selectedRow]]];
 }
 
-- (void)windowDidResignKey:(NSNotification *)notification
+- (void)flagsChanged:(NSEvent *)event
 {
-	[self close];
+	NSLog(@"flags");
+}
+
+- (void)moveDown:(id)sender
+{
+	if (self.tableView.selectedRow == self.manager.items.count - 1)
+	{
+		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+	}
+	else
+	{
+		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:self.tableView.selectedRow + 1] byExtendingSelection:NO];
+	}
+}
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+	[self.manager pasteItem:self.manager.items[[self.tableView selectedRow]]];
 }
 
 @end

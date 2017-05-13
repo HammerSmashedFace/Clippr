@@ -10,6 +10,7 @@
 #import "SFClipboardItem.h"
 
 #import <Cocoa/Cocoa.h>
+#import <Carbon/Carbon.h>
 
 @interface SFClipboardManager()
 
@@ -56,7 +57,25 @@
 
 - (void)pasteItem:(__kindof SFClipboardItem *)item
 {
-	[self.pasteboard writeObjects:@[item]];
+	self.lastChangeCount++;
+	[self.pasteboard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
+	[self.pasteboard setString:item.name forType:item.type];
+	
+	CGEventSourceRef sourceRef = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
+	if (!sourceRef)
+	{
+		NSLog(@"No event source");
+		return;
+	}
+	CGKeyCode veeCode = kVK_ANSI_V;
+	CGEventRef eventDown = CGEventCreateKeyboardEvent(sourceRef, veeCode, true);
+	CGEventSetFlags(eventDown, kCGEventFlagMaskCommand|0x000008);
+	CGEventRef eventUp = CGEventCreateKeyboardEvent(sourceRef, veeCode, false);
+	CGEventPost(kCGHIDEventTap, eventDown);
+	CGEventPost(kCGHIDEventTap, eventUp);
+	CFRelease(eventDown);
+	CFRelease(eventUp);
+	CFRelease(sourceRef);
 }
 
 - (NSPasteboard *)pasteboard

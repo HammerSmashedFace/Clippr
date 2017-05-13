@@ -12,12 +12,12 @@
 
 - (BOOL)canBecomeKeyWindow
 {
-	return YES;
+	return NO;
 }
 
 - (BOOL)canBecomeMainWindow
 {
-	return YES;
+	return NO;
 }
 
 @end

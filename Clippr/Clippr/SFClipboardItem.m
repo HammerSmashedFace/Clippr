@@ -7,7 +7,6 @@
 //
 
 #import "SFClipboardItem.h"
-#import "SFApplication.h"
 
 @implementation SFClipboardItem
 
@@ -18,25 +17,27 @@
 	{
 		_name = [name copy];
 		_source = [source retain];
+		_creationDate = [[NSDate date] retain];
 	}
 	return self;
-}
-
-- (NSArray<NSString *> *)writableTypesForPasteboard:(NSPasteboard *)pasteboard
-{
-	return @[self.type];
 }
 
 - (NSDictionary *)dictionaryRepresentation
 {
 	return @{
-			 @"name" : self.name,
-			 @"source" : self.source.localizedName};
+	  @"name" : self.name,
+	  @"source" : self.source.localizedName,
+	  @"type" : self.type,
+	  @"date" : self.creationDate};
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-	return [[SFClipboardItem alloc] initWithName:self.name source:self.source];
+	SFClipboardItem *result = [[SFClipboardItem alloc] init];
+	result->_name = [self.name copy];
+	result->_source = [self.source retain];
+	result->_type = [self.type copy];
+	return result;
 }
 
 - (NSString *)description

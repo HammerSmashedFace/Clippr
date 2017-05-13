@@ -37,6 +37,11 @@
 	return _manager;
 }
 
+- (void)applicationDidBecomeActive:(NSNotification *)notification
+{
+	[NSApp hide:self];
+}
+
 - (SFWindowController *)windowController
 {
 	if (_windowController == nil)
@@ -50,8 +55,8 @@
 - (void)registerShortcut
 {
 	EventHotKeyID hotKeyID;
-	hotKeyID.signature = 'apsl';
-	hotKeyID.id = 'apsl';
+	hotKeyID.signature = 'clip';
+	hotKeyID.id = 'clip';
 	
 	EventHotKeyRef hotKey = NULL;
 	RegisterEventHotKey(kVK_ANSI_V, optionKey, hotKeyID, GetApplicationEventTarget(), 0, &hotKey);
@@ -74,18 +79,43 @@
 	EventHandlerRef eventHandlerRef;
 	EventTypeSpec hotKeyPressedSpec = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyPressed };
 	InstallEventHandler(GetEventDispatcherTarget(), ASCarbonEventCallback, 1, &hotKeyPressedSpec, (__bridge void *)self, &eventHandlerRef);
+	
+	
+	EventHandlerRef eventHandlerRefRel;
+	EventTypeSpec hotKeyReleasedSpec = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyReleased };
+	InstallEventHandler(GetEventDispatcherTarget(), ASCarbonEventCallbackRel, 1, &hotKeyReleasedSpec, (__bridge void *)self, &eventHandlerRefRel);
+	
 	[self registerShortcut];
-}
-
-- (void)invalidateShortcut
-{
-	[self unregisterShortcut];
 }
 
 static OSStatus ASCarbonEventCallback(EventHandlerCallRef _, EventRef event, void *context)
 {
 	AppDelegate *dispatcher = (__bridge id)context;
-	[dispatcher.windowController.window makeKeyAndOrderFront:nil];
+	if (!dispatcher.windowController.window.visible)
+	{
+		[dispatcher.windowController.window makeKeyAndOrderFront:nil];
+	}
+	else
+	{
+		[dispatcher.windowController moveDown:nil];
+	}
+	return noErr;
+}
+
+CGEventRef keyUpCallback (CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon)
+{
+	[((AppDelegate *)NSApp.delegate).windowController close];
+	return event;
+}
+
+static OSStatus ASCarbonEventCallbackRel(EventHandlerCallRef _, EventRef event, void *context)
+{
+	CFMachPortRef keyUpEventTap = CGEventTapCreate(kCGHIDEventTap, kCGHeadInsertEventTap,kCGEventTapOptionListenOnly, CGEventMaskBit(kCGEventFlagsChanged), &keyUpCallback,NULL);
+	
+	CFRunLoopSourceRef keyUpRunLoopSourceRef = CFMachPortCreateRunLoopSource(NULL, keyUpEventTap, 0);
+	CFRelease(keyUpEventTap);
+	CFRunLoopAddSource(CFRunLoopGetCurrent(), keyUpRunLoopSourceRef, kCFRunLoopDefaultMode);
+	CFRelease(keyUpRunLoopSourceRef);
 	return noErr;
 }
 
@@ -98,7 +128,7 @@ static OSStatus ASCarbonEventCallback(EventHandlerCallRef _, EventRef event, voi
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
+	[self unregisterShortcut];
 }
-
 
 @end
