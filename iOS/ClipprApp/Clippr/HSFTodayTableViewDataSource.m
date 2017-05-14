@@ -52,8 +52,6 @@
 	{
 		HSFClipboardItem *clipboardItem = [items objectAtIndex:indexPath.row];
 		cell.textLabel.text = clipboardItem.text;
-
-		[cell.dateLabel removeFromSuperview];
 	}
 
 	return cell;

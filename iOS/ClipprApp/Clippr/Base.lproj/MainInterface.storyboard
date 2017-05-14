@@ -44,7 +44,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Copy"/>
                                 <connections>
-                                    <action selector="addButtonDidPress:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="OXC-tQ-ao3"/>
+                                    <action selector="addButtonDidPress:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="yow-qB-Q5W"/>
                                 </connections>
                             </button>
                         </subviews>

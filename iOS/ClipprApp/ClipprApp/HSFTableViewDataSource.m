@@ -59,10 +59,6 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	{
 		HSFClipboardItem *clipboardItem = [items objectAtIndex:indexPath.row];
 		cell.textLabel.text = clipboardItem.text;
-
-		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		[formatter setDateStyle:NSDateFormatterShortStyle];
-		cell.dateLabel.text = [formatter stringFromDate:clipboardItem.date];
 	}
 
 	return cell;
