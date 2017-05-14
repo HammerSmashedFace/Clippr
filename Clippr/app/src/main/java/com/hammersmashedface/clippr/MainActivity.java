@@ -56,12 +56,11 @@ public class MainActivity extends ListActivity {
         });
         serverManager.addCopyHandler(new ServerManager.CopyHandler() {
             @Override
-            public void handleItem(TextItem item) {
-                textList.add(0, item.getText());
-
+            public void handleItem(final TextItem item) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        textList.add(0, item.getText());
                         adapter.notifyDataSetChanged();
                     }
                 });
