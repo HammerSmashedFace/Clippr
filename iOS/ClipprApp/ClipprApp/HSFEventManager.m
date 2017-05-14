@@ -31,7 +31,7 @@ static NSString *const kHSFEventManagerSocketURL = @"http://crowley-m-pc.zeo.lcl
 	{
 		NSURL *socketURL = [NSURL URLWithString:kHSFEventManagerSocketURL];
 		_connected = NO;
-		_socketClient = [[SocketIOClient alloc] initWithSocketURL:socketURL config:@{@"log": @YES, @"forcePolling": @YES}];
+		_socketClient = [[SocketIOClient alloc] initWithSocketURL:socketURL config:@{@"log": @NO, @"forcePolling": @YES}];
 
 		[_socketClient connect];
 	}

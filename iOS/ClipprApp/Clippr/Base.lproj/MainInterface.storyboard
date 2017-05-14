@@ -32,11 +32,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="M4Y-Lb-cyx" id="8Li-K9-Dam"/>
                                     <outlet property="delegate" destination="M4Y-Lb-cyx" id="97t-1t-Q0x"/>
+                                    <outletCollection property="gestureRecognizers" destination="rtw-94-ZMT" appends="YES" id="FoF-6j-TaU"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -58,6 +60,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="rtw-94-ZMT">
+                    <connections>
+                        <action selector="longTapRecognizer:" destination="M4Y-Lb-cyx" id="iX2-XN-461"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="33.333333333333336" y="37.092391304347828"/>
         </scene>

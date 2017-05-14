@@ -14,6 +14,7 @@
 
 #import "HSFCustomTableViewCell.h"
 
+#import <MobileCoreServices/MobileCoreServices.h>
 #import <NotificationCenter/NotificationCenter.h>
 
 NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
@@ -27,11 +28,6 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 @property (nonatomic, strong, readwrite) HSFJSONManager *jsonManager;
 
 @property (nonatomic, strong, readonly) NSArray<HSFClipboardItem *> *items;
-
-@property (nonatomic, weak, readwrite) NSTimer *pasteboardCheckTimer;
-@property (nonatomic, assign, readwrite) NSUInteger pasteboardChangeCount;
-
-@property (nonatomic, assign, readwrite) BOOL allowsCopying;
 
 @end
 
@@ -54,21 +50,16 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	self.jsonManager.delegate = (id<HSFJSONManagerDelegate>)self.dataController;
 
 	[self.dataController addObserver:self forKeyPath:@"items" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:&kHSFTodayViewControllerContext];
-
-//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePasteboardChange:) name:UIPasteboardChangedNotification object:nil];
-	[self startCheckingPasteboard];
-
-	self.allowsCopying = YES;
 }
 
 - (void)dealloc
 {
-	if (_pasteboardCheckTimer != nil)
-	{
-		[_pasteboardCheckTimer invalidate];
-	}
-
 	[_dataController removeObserver:self forKeyPath:@"items"];
+}
+
+- (UIPasteboard *)pasteboard
+{
+	return [UIPasteboard generalPasteboard];
 }
 
 - (NSArray<HSFClipboardItem *> *)items
@@ -95,31 +86,16 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Pasteboard checking
-
-- (void)startCheckingPasteboard
-{
-	self.pasteboardCheckTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(monitorBoard:) userInfo:nil repeats:YES];
-}
-
-- (void)monitorBoard:(NSTimer*)timer
-{
-	NSUInteger changeCount = [[UIPasteboard generalPasteboard] changeCount];
-	UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-	if (changeCount != self.pasteboardChangeCount && self.allowsCopying)
-	{		
-		self.pasteboardChangeCount = changeCount;
-		if ([pasteboard containsPasteboardTypes:pasteboard.pasteboardTypes])
-		{
-			self.allowsCopying = NO;
-			NSString *newContent = [UIPasteboard generalPasteboard].string;
-			HSFClipboardItem *newItem = [[HSFClipboardItem alloc] initWithText:newContent];
-			[self.dataController addItem:newItem];
-		}
-	}
-}
-
 #pragma mark - UITableView methods
+
+- (IBAction)longTapRecognizer:(UILongPressGestureRecognizer *)sender
+{
+	CGPoint location = [sender locationInView:self.view];
+	NSIndexPath *indexPath = [self.itemsTableView indexPathForRowAtPoint:location];
+	NSString *selectedValue = self.items[indexPath.item].text;
+	NSDictionary *items = [NSDictionary dictionaryWithObject:selectedValue forKey:(NSString *)kUTTypeUTF8PlainText];
+	[[UIPasteboard generalPasteboard] setItems:@[items]];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -177,7 +153,6 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	if (context == &kHSFTodayViewControllerContext && object == self.dataController && [keyPath isEqualToString:@"items"])
 	{
 		[self.itemsTableView reloadData];
-		self.allowsCopying = YES;
 	}
 	else
 	{
