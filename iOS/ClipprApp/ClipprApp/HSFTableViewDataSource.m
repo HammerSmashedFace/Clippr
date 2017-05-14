@@ -35,12 +35,13 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 - (NSArray *)items
 {
-	return self.modelController.items;
+	NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+	return [self.modelController.items sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return self.items.count > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : self.items.count;
+	return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

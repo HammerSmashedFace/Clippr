@@ -31,4 +31,9 @@
 	return result;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return self.items.count > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : self.items.count;
+}
+
 @end

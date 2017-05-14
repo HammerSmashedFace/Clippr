@@ -50,6 +50,7 @@ static NSString *const kHSFEventManagerSocketURL = @"http://crowley-m-pc.zeo.lcl
 	{
 		self.connected = YES;
 		[self.socketClient emit:@"history" with:@[]];
+		NSLog(@"Connected to server");
 	}];
 
 	[self.socketClient on:@"copy_text" callback:^(NSArray *data, SocketAckEmitter *ack)

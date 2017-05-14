@@ -8,7 +8,7 @@
 
 #import "TodayViewController.h"
 #import "HSFTodayTableViewDataSource.h"
-#import "HSFTableViewDelegate.h"
+#import "HSFTodayTableViewDelegate.h"
 #import "HSFModelController.h"
 #import "HSFClipboardItem.h"
 
@@ -22,7 +22,7 @@
 @property (nonatomic, weak, nonatomic) IBOutlet UITableView *itemsTableView;
 @property (nonatomic, strong, readwrite) HSFModelController *modelController;
 @property (nonatomic, strong, readwrite) HSFTodayTableViewDataSource *dataSource;
-@property (nonatomic, strong, readwrite) HSFTableViewDelegate *tableViewDelegate;
+@property (nonatomic, strong, readwrite) HSFTodayTableViewDelegate *tableViewDelegate;
 
 @end
 
@@ -40,7 +40,7 @@
 	self.dataSource = [[HSFTodayTableViewDataSource alloc] initWithModelController:self.modelController];
 	self.itemsTableView.dataSource = self.dataSource;
 
-	self.tableViewDelegate = [[HSFTableViewDelegate alloc] init];
+	self.tableViewDelegate = [[HSFTodayTableViewDelegate alloc] init];
 	self.itemsTableView.delegate = self.tableViewDelegate;
 }
 

@@ -44,6 +44,7 @@
 		9B610A751EC827C400274082 /* HSFTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A701EC81E9300274082 /* HSFTableViewDelegate.m */; };
 		9B610A761EC827C700274082 /* HSFCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */; };
 		9B610A791EC82A6300274082 /* HSFTodayTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A781EC82A6300274082 /* HSFTodayTableViewDataSource.m */; };
+		9B610A7C1EC830AA00274082 /* HSFTodayTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A7B1EC830AA00274082 /* HSFTodayTableViewDelegate.m */; };
 		9BED134C1EC79482002A7D74 /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,8 @@
 		9B610A701EC81E9300274082 /* HSFTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTableViewDelegate.m; sourceTree = "<group>"; };
 		9B610A771EC82A6300274082 /* HSFTodayTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTodayTableViewDataSource.h; sourceTree = "<group>"; };
 		9B610A781EC82A6300274082 /* HSFTodayTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTodayTableViewDataSource.m; sourceTree = "<group>"; };
+		9B610A7A1EC830AA00274082 /* HSFTodayTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTodayTableViewDelegate.h; sourceTree = "<group>"; };
+		9B610A7B1EC830AA00274082 /* HSFTodayTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTodayTableViewDelegate.m; sourceTree = "<group>"; };
 		9F2E967743B4AE1AB4C8BB04 /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		A9730029DEA5356F01F08C74 /* Pods_Clippr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clippr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3FDBCA9D1B48C2B481ACE6C /* Pods-Clippr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clippr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clippr/Pods-Clippr.release.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				9B33EB921EC7615C00E35D1B /* TodayViewController.m */,
 				9B610A771EC82A6300274082 /* HSFTodayTableViewDataSource.h */,
 				9B610A781EC82A6300274082 /* HSFTodayTableViewDataSource.m */,
+				9B610A7A1EC830AA00274082 /* HSFTodayTableViewDelegate.h */,
+				9B610A7B1EC830AA00274082 /* HSFTodayTableViewDelegate.m */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 				9B610A751EC827C400274082 /* HSFTableViewDelegate.m in Sources */,
 				9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */,
 				9B610A791EC82A6300274082 /* HSFTodayTableViewDataSource.m in Sources */,
+				9B610A7C1EC830AA00274082 /* HSFTodayTableViewDelegate.m in Sources */,
 				9B33EBDF1EC7914800E35D1B /* HSFJSONManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,18 +1,18 @@
 //
-//  HSFTableViewDelegate.m
+//  HSFTodayTableViewDelegate.m
 //  ClipprApp
 //
 //  Created by Dmitry Antipenko on 5/14/17.
 //  Copyright © 2017 HammerSmashedFace. All rights reserved.
 //
 
-#import "HSFTableViewDelegate.h"
+#import "HSFTodayTableViewDelegate.h"
 
-@implementation HSFTableViewDelegate
+@implementation HSFTodayTableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return 50.0;
+	return 82.0;
 }
 
 @end

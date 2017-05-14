@@ -39,12 +39,10 @@
 	self.historyTableView.delegate = self.tableViewDelegate;
 }
 
-
 - (void)didReceiveMemoryWarning
 {
 	[super didReceiveMemoryWarning];
 }
-
 
 #pragma mark - UITableView methods
 
@@ -56,8 +54,6 @@
 	NSDictionary *items = [NSDictionary dictionaryWithObject:selectedValue forKey:(NSString *)kUTTypeUTF8PlainText];
 	[[UIPasteboard generalPasteboard] setItems:@[items]];
 }
-
-
 
 #pragma mark - Observing
 
