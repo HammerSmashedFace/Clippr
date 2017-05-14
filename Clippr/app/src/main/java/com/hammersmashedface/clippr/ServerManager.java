@@ -47,7 +47,13 @@ public class ServerManager {
 
                 if (item != null)
                 {
-                    clipboardManager.setText(item.getText());
+                    String currentText = clipboardManager.getText().toString();
+
+                    // TODO: This is a workaround
+                    // Fix copy-paste cycle to clipboard
+                    if (!currentText.equals(item.getText())) {
+                        clipboardManager.setText(item.getText());
+                    }
                 }
             }
         }).on("history", new Emitter.Listener() {
