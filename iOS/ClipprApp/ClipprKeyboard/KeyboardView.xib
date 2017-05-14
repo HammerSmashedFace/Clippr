@@ -24,15 +24,15 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HN7-jG-Wnm">
-                    <rect key="frame" x="0.0" y="3" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="3" width="320" height="80"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="320" id="NCt-xv-uwN"/>
-                        <constraint firstAttribute="height" constant="40" id="eF2-Hp-hmg"/>
+                        <constraint firstAttribute="height" constant="80" id="jd3-Ea-crG"/>
                     </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ARs-ga-YEb"/>
@@ -40,7 +40,7 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YrA-FS-qPG">
-                    <rect key="frame" x="0.0" y="43" width="320" height="214"/>
+                    <rect key="frame" x="0.0" y="83" width="320" height="214"/>
                     <subviews>
                         <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xy-Pe-qwV" userLabel="Row 1">
                             <rect key="frame" x="0.0" y="43" width="320" height="42"/>
@@ -849,10 +849,10 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="YrA-FS-qPG" firstAttribute="top" secondItem="HN7-jG-Wnm" secondAttribute="bottom" id="5mC-zI-UwQ"/>
                 <constraint firstItem="YrA-FS-qPG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7bj-q4-BMc"/>
                 <constraint firstAttribute="trailing" secondItem="HN7-jG-Wnm" secondAttribute="trailing" id="Dp3-EZ-Pvx"/>
                 <constraint firstAttribute="bottom" secondItem="YrA-FS-qPG" secondAttribute="bottom" constant="3" id="G7v-U0-yt1"/>
-                <constraint firstItem="YrA-FS-qPG" firstAttribute="top" secondItem="HN7-jG-Wnm" secondAttribute="bottom" id="gtD-x7-bqb"/>
                 <constraint firstItem="HN7-jG-Wnm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kc3-CX-PBt"/>
                 <constraint firstItem="HN7-jG-Wnm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="m0Z-bK-7gL"/>
                 <constraint firstAttribute="trailing" secondItem="YrA-FS-qPG" secondAttribute="trailing" id="mN4-IS-hYN"/>
