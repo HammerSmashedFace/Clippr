@@ -17,6 +17,7 @@
 
 @property (nonatomic, retain, readonly) SFClipboardManager *manager;
 @property (nonatomic, retain, readonly) SFWindowController *windowController;
+@property (nonatomic, retain, readonly) NSStatusItem *statusItem;
 
 @property (nonatomic, assign, readwrite) EventHotKeyRef hotKey;
 @property (nonatomic, retain, readwrite) id eventMonitor;
@@ -27,6 +28,7 @@
 
 @synthesize manager = _manager;
 @synthesize windowController = _windowController;
+@synthesize statusItem = _statusItem;
 
 - (SFClipboardManager *)manager
 {
@@ -35,6 +37,42 @@
 		_manager = [[SFClipboardManager alloc] init];
 	}
 	return _manager;
+}
+
+- (NSStatusItem *)statusItem
+{
+	if (_statusItem == nil)
+	{
+		_statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength] retain];
+		_statusItem.button.target = self;
+		_statusItem.button.action = @selector(statusItemClicked);
+		_statusItem.image = [NSImage imageNamed:NSImageNameActionTemplate];
+		_statusItem.image.template = YES;
+		
+		NSMenu *menu = [[NSMenu alloc] initWithTitle:@"AppIcon"];
+		NSMenuItem *quitItem = [[[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""] autorelease];
+		[menu addItem:quitItem];
+		
+		NSMenuItem *showItem = [[[NSMenuItem alloc] initWithTitle:@"Show Clippr" action:@selector(show) keyEquivalent:@""] autorelease];
+		[menu addItem:showItem];
+		_statusItem.menu = menu;
+	}
+	return _statusItem;
+}
+
+- (void)show
+{
+	[self.windowController showWindow:nil];
+}
+
+- (void)quit
+{
+	[NSApp terminate:nil];
+}
+
+- (void)statusItemClicked
+{
+	[self.windowController showWindow:nil];
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification
@@ -121,6 +159,7 @@ static OSStatus ASCarbonEventCallbackRel(EventHandlerCallRef _, EventRef event, 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	[self statusItem];
 	[self windowController];
 	[self setupShortcut];
 }

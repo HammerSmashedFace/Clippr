@@ -10,4 +10,9 @@
 
 @implementation SFRTFClipboardItem
 
+- (NSData *)data
+{
+	return [self.attributedString RTFFromRange:NSMakeRange(0, self.attributedString.length) documentAttributes:@{}];
+}
+
 @end

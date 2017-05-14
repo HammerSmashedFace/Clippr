@@ -10,4 +10,9 @@
 
 @implementation SFImageClipboardItem
 
+- (NSData *)data
+{
+	return [self.image TIFFRepresentation];
+}
+
 @end

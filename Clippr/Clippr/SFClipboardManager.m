@@ -105,7 +105,7 @@
 {
 	self.lastChangeCount++;
 	[self.pasteboard declareTypes:[NSArray arrayWithObject:item.type ?: NSStringPboardType] owner:nil];
-	[self.pasteboard setString:item.name forType:item.type];
+	[self.pasteboard setData:[item data] forType:item.type];
 	
 	CGEventSourceRef sourceRef = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
 	if (!sourceRef)

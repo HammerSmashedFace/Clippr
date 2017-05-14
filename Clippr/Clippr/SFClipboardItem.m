@@ -47,6 +47,11 @@
 	  @"type" : self.type};
 }
 
+- (NSData *)data
+{
+	return [self.name dataUsingEncoding:NSUTF8StringEncoding];
+}
+
 - (id)copyWithZone:(NSZone *)zone
 {
 	SFClipboardItem *result = [[SFClipboardItem alloc] init];

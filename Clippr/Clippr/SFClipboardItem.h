@@ -20,4 +20,6 @@
 - (instancetype)initWithDictionaryRepresentation:(NSDictionary *)dictionaryRepresentation;
 - (NSDictionary *)dictionaryRepresentation;
 
+- (NSData *)data;
+
 @end
