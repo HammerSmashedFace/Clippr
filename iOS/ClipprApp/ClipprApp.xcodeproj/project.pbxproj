@@ -10,6 +10,11 @@
 		36597E5E3815885D9B54265C /* Pods_Clippr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9730029DEA5356F01F08C74 /* Pods_Clippr.framework */; };
 		3C3D9F730FA8D57A62E27E77 /* Pods_ClipprApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468D4599222FCE9E15660E65 /* Pods_ClipprApp.framework */; };
 		3E5A4B88E3422831C5687C37 /* Pods_ClipprKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226DABBEAE63218A2F02EC95 /* Pods_ClipprKeyboard.framework */; };
+		8AB333EF1EC7D1B0003CB82D /* HSFDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD41EC76CC900E35D1B /* HSFDataController.m */; };
+		8AB333F01EC7D1C1003CB82D /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
+		8AB333F11EC7D1C3003CB82D /* HSFJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */; };
+		8AB333F21EC7D1C5003CB82D /* HSFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */; };
+		8AB333F41EC7DB14003CB82D /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB333F31EC7DB14003CB82D /* KeyboardView.xib */; };
 		9B33EB5E1EC7547400E35D1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB5D1EC7547400E35D1B /* main.m */; };
 		9B33EB611EC7547400E35D1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB601EC7547400E35D1B /* AppDelegate.m */; };
 		9B33EB641EC7547400E35D1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB631EC7547400E35D1B /* ViewController.m */; };
@@ -22,7 +27,6 @@
 		9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EB921EC7615C00E35D1B /* TodayViewController.m */; };
 		9B33EB961EC7615C00E35D1B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EB941EC7615C00E35D1B /* MainInterface.storyboard */; };
 		9B33EB9A1EC7615C00E35D1B /* Clippr.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B33EB8D1EC7615C00E35D1B /* Clippr.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9B33EBA11EC761CF00E35D1B /* ClipprKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B33EBA01EC761CF00E35D1B /* ClipprKeyboardView.xib */; };
 		9B33EBD51EC76CC900E35D1B /* HSFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */; };
 		9B33EBD61EC76CC900E35D1B /* HSFDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD41EC76CC900E35D1B /* HSFDataController.m */; };
 		9B33EBD91EC76ED200E35D1B /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
@@ -95,6 +99,8 @@
 		468D4599222FCE9E15660E65 /* Pods_ClipprApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipprApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5926B2CA26288B50C0F47845 /* Pods-ClipprKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipprKeyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClipprKeyboard/Pods-ClipprKeyboard.release.xcconfig"; sourceTree = "<group>"; };
 		6B26691BA5F279BBEBBC1480 /* Pods-Clippr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clippr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clippr/Pods-Clippr.debug.xcconfig"; sourceTree = "<group>"; };
+		8AB333EC1EC7A940003CB82D /* ClipprKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClipprKeyboard.entitlements; sourceTree = "<group>"; };
+		8AB333F31EC7DB14003CB82D /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		9B33EB591EC7547400E35D1B /* ClipprApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipprApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B33EB5D1EC7547400E35D1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B33EB5F1EC7547400E35D1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,7 +121,6 @@
 		9B33EB921EC7615C00E35D1B /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		9B33EB951EC7615C00E35D1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		9B33EB971EC7615C00E35D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B33EBA01EC761CF00E35D1B /* ClipprKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClipprKeyboardView.xib; sourceTree = "<group>"; };
 		9B33EBD11EC76CC900E35D1B /* HSFClipboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFClipboardItem.h; sourceTree = "<group>"; };
 		9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFClipboardItem.m; sourceTree = "<group>"; };
 		9B33EBD31EC76CC900E35D1B /* HSFDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFDataController.h; sourceTree = "<group>"; };
@@ -257,6 +262,7 @@
 		9B33EB7B1EC7609A00E35D1B /* ClipprKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				8AB333EC1EC7A940003CB82D /* ClipprKeyboard.entitlements */,
 				9B33EB871EC7609F00E35D1B /* Sources */,
 				9B33EB881EC760A300E35D1B /* Resources */,
 			);
@@ -275,8 +281,8 @@
 		9B33EB881EC760A300E35D1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8AB333F31EC7DB14003CB82D /* KeyboardView.xib */,
 				9B33EB7F1EC7609A00E35D1B /* Info.plist */,
-				9B33EBA01EC761CF00E35D1B /* ClipprKeyboardView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -457,6 +463,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = HH3LM89A9A;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					9B33EB8C1EC7615C00E35D1B = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -500,7 +511,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B33EBA11EC761CF00E35D1B /* ClipprKeyboardView.xib in Resources */,
+				8AB333F41EC7DB14003CB82D /* KeyboardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +661,10 @@
 				9B610A731EC827C200274082 /* HSFTableViewDataSource.m in Sources */,
 				9B610A761EC827C700274082 /* HSFCustomTableViewCell.m in Sources */,
 				9B33EB7E1EC7609A00E35D1B /* KeyboardViewController.m in Sources */,
+				8AB333F11EC7D1C3003CB82D /* HSFJSONManager.m in Sources */,
+				8AB333F21EC7D1C5003CB82D /* HSFClipboardItem.m in Sources */,
+				8AB333EF1EC7D1B0003CB82D /* HSFDataController.m in Sources */,
+				8AB333F01EC7D1C1003CB82D /* HSFEventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
