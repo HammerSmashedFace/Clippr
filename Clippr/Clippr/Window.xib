@@ -18,7 +18,7 @@
         <window title="Clippr" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="SFWindow">
             <windowStyleMask key="styleMask" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="800" y="15" width="480" height="270"/>
+            <rect key="contentRect" x="548" y="23" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
@@ -139,7 +139,7 @@
                                                                         <rect key="frame" x="74" y="-3" width="307" height="20"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="yC5-73-16u">
-                                                                            <dateFormatter key="formatter" formatterBehavior="custom10_4" dateStyle="short" dateFormat="MM/dd/yy h:mm:ss" id="2YB-bC-Nca"/>
+                                                                            <dateFormatter key="formatter" formatterBehavior="custom10_4" dateStyle="short" dateFormat="EEEE, dd MMMM yyyy" id="2YB-bC-Nca"/>
                                                                             <font key="font" metaFont="system"/>
                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -181,7 +181,7 @@
                                         <nil key="backgroundColor"/>
                                     </clipView>
                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="vzH-9h-sSK">
-                                        <rect key="frame" x="1" y="254" width="473" height="16"/>
+                                        <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="QMm-ix-Lur">

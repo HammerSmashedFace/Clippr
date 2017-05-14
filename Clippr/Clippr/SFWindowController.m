@@ -48,6 +48,17 @@
 - (void)showWindow:(id)sender
 {
 	[super showWindow:sender];
+	
+	if (sender == nil)
+	{
+		CGEventRef ourEvent = CGEventCreate(NULL);
+		CGPoint mouseLocation = CGEventGetLocation(ourEvent);
+		mouseLocation.y = [NSScreen mainScreen].frame.size.height - mouseLocation.y + 10.0;
+		mouseLocation.x -= 10.0;
+		CFRelease(ourEvent);
+		
+		[self.window setFrameOrigin:mouseLocation];
+	}
 	[self.tableView reloadData];
 }
 

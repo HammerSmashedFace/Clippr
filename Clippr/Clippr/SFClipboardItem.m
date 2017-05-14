@@ -32,7 +32,7 @@
 	self = [self initWithName:dictionaryRepresentation[@"text"] source:runningApplication];
 	if (self)
 	{
-		_creationDate = [[NSDate dateWithTimeIntervalSince1970:[dictionaryRepresentation[@"timestamp"] doubleValue]] retain];
+		_creationDate = [[NSDate dateWithTimeIntervalSince1970:[dictionaryRepresentation[@"timestamp"] doubleValue] / 1000.0] retain];
 		_type = [NSPasteboardTypeString copy];
 	}
 	return self;
@@ -43,7 +43,7 @@
 	return @{
 	  @"text" : self.name,
 	  @"bundleID" : self.source.bundleIdentifier,
-	  @"timestamp" : [NSString stringWithFormat:@"%f", [self.creationDate timeIntervalSince1970]],
+	  @"timestamp" : [NSString stringWithFormat:@"%f", [self.creationDate timeIntervalSince1970] * 1000.0],
 	  @"type" : self.type};
 }
 

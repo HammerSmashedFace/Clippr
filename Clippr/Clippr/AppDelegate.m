@@ -62,7 +62,7 @@
 
 - (void)show
 {
-	[self.windowController showWindow:nil];
+	[self.windowController showWindow:self.statusItem];
 }
 
 - (void)quit
@@ -72,7 +72,7 @@
 
 - (void)statusItemClicked
 {
-	[self.windowController showWindow:nil];
+	[self.windowController showWindow:self.statusItem];
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification
@@ -131,7 +131,7 @@ static OSStatus ASCarbonEventCallback(EventHandlerCallRef _, EventRef event, voi
 	AppDelegate *dispatcher = (__bridge id)context;
 	if (!dispatcher.windowController.window.visible)
 	{
-		[dispatcher.windowController.window makeKeyAndOrderFront:nil];
+		[dispatcher.windowController showWindow:nil];
 	}
 	else
 	{
@@ -163,7 +163,6 @@ static OSStatus ASCarbonEventCallbackRel(EventHandlerCallRef _, EventRef event, 
 	[self windowController];
 	[self setupShortcut];
 }
-
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
