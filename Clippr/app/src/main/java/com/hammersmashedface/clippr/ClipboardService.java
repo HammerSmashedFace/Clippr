@@ -11,6 +11,8 @@ import android.util.Log;
 import java.util.Date;
 
 public class ClipboardService extends Service {
+    private static final String TAG = "ClipboardService";
+
     private ServerManager serverManager;
     private ClipboardManager clipboardManager;
 
@@ -19,9 +21,6 @@ public class ClipboardService extends Service {
         super.onCreate();
 
         clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
-        serverManager = new ServerManager(clipboardManager, SERVER_URI);
-        serverManager.connect();
-
         clipboardManager.addPrimaryClipChangedListener(new ClipboardManager.OnPrimaryClipChangedListener() {
             @Override
             public void onPrimaryClipChanged() {
@@ -29,27 +28,42 @@ public class ClipboardService extends Service {
                 long date = new Date().getTime();
 
                 TextItem item = new TextItem(text, date);
-                serverManager.copyItem(item);
+                serverManager.copyItem(item, new ServerManager.CopyHandler() {
+                    @Override
+                    public void handleItem(TextItem item) {
+                        if (item != null) {
+                            String currentText = clipboardManager.getText().toString();
 
-                Log.d("ClipboardService", text);
+                            // TODO: This is a workaround
+                            // Fix copy-paste cycle to clipboard
+                            if (!currentText.equals(item.getText())) {
+                                clipboardManager.setText(item.getText());
+                            }
+                        }
+
+                    }
+                });
             }
         });
+
+        serverManager = new ServerManager(SERVER_URI);
+        serverManager.connect();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("ClipboardService", "started");
+        Log.i(TAG, "started");
         return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(TAG, "finished");
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.d("ClipboardService", "finished");
     }
 }
