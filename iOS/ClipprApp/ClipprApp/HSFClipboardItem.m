@@ -56,7 +56,7 @@
 
 - (NSDictionary *)jsonRepresentation
 {
-	return @{ @"text" : self.text, @"date" : self.date };
+	return @{ @"text" : self.text, @"date" : @(self.date.timeIntervalSince1970) };
 }
 
 @end

@@ -28,6 +28,11 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 @property (nonatomic, strong, readonly) NSArray<HSFClipboardItem *> *items;
 
+@property (nonatomic, weak, readwrite) NSTimer *pasteboardCheckTimer;
+@property (nonatomic, assign, readwrite) NSUInteger pasteboardChangeCount;
+
+@property (nonatomic, assign, readwrite) BOOL allowsCopying;
+
 @end
 
 @implementation TodayViewController
@@ -49,10 +54,20 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	self.jsonManager.delegate = (id<HSFJSONManagerDelegate>)self.dataController;
 
 	[self.dataController addObserver:self forKeyPath:@"items" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:&kHSFTodayViewControllerContext];
+
+//	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePasteboardChange:) name:UIPasteboardChangedNotification object:nil];
+	[self startCheckingPasteboard];
+
+	self.allowsCopying = YES;
 }
 
 - (void)dealloc
 {
+	if (_pasteboardCheckTimer != nil)
+	{
+		[_pasteboardCheckTimer invalidate];
+	}
+
 	[_dataController removeObserver:self forKeyPath:@"items"];
 }
 
@@ -78,6 +93,30 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Pasteboard checking
+
+- (void)startCheckingPasteboard
+{
+	self.pasteboardCheckTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(monitorBoard:) userInfo:nil repeats:YES];
+}
+
+- (void)monitorBoard:(NSTimer*)timer
+{
+	NSUInteger changeCount = [[UIPasteboard generalPasteboard] changeCount];
+	UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+	if (changeCount != self.pasteboardChangeCount && self.allowsCopying)
+	{		
+		self.pasteboardChangeCount = changeCount;
+		if ([pasteboard containsPasteboardTypes:pasteboard.pasteboardTypes])
+		{
+			self.allowsCopying = NO;
+			NSString *newContent = [UIPasteboard generalPasteboard].string;
+			HSFClipboardItem *newItem = [[HSFClipboardItem alloc] initWithText:newContent];
+			[self.dataController addItem:newItem];
+		}
+	}
 }
 
 #pragma mark - UITableView methods
@@ -114,6 +153,8 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler
 {
+	[self.itemsTableView reloadData];
+
     completionHandler(NCUpdateResultNewData);
 }
 
@@ -133,9 +174,10 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
-	if (context == &kHSFTodayViewControllerContext && [keyPath isEqualToString:@"items"])
+	if (context == &kHSFTodayViewControllerContext && object == self.dataController && [keyPath isEqualToString:@"items"])
 	{
 		[self.itemsTableView reloadData];
+		self.allowsCopying = YES;
 	}
 	else
 	{
