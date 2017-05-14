@@ -1,6 +1,7 @@
 package com.hammersmashedface.clippr;
 
 import android.app.Service;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,13 +9,19 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ClipboardService extends Service {
     private static final String TAG = "ClipboardService";
 
     private ServerManager serverManager;
     private ClipboardManager clipboardManager;
+
+    private TextItem lastLoadedItem;
 
     @Override
     public void onCreate() {
@@ -25,10 +32,14 @@ public class ClipboardService extends Service {
             @Override
             public void onPrimaryClipChanged() {
                 String text = clipboardManager.getText().toString();
-                long date = new Date().getTime();
 
-                TextItem item = new TextItem(text, date);
-                serverManager.copyItem(item);
+                if (lastLoadedItem == null || !lastLoadedItem.getText().equals(text)) {
+                    long date = new Date().getTime();
+
+                    TextItem item = new TextItem(text, date);
+
+                    serverManager.copyItem(item);
+                }
             }
         });
 
@@ -36,7 +47,8 @@ public class ClipboardService extends Service {
         serverManager.addCopyHandler(new ServerManager.CopyHandler() {
             @Override
             public void handleItem(TextItem item) {
-                clipboardManager.setText(item.getText());
+                lastLoadedItem = item;
+                clipboardManager.setText(lastLoadedItem.getText());
             }
         });
         serverManager.connect();
