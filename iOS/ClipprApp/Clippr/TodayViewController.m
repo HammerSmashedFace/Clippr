@@ -17,15 +17,12 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <NotificationCenter/NotificationCenter.h>
 
-
 @interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource, HSFModelControllerDelegate>
 
 @property (nonatomic, weak, nonatomic) IBOutlet UITableView *itemsTableView;
 @property (nonatomic, strong, readwrite) HSFModelController *modelController;
-@property (nonatomic, strong, readwrite) HSFTableViewDataSource *dataSource;
+@property (nonatomic, strong, readwrite) HSFTodayTableViewDataSource *dataSource;
 @property (nonatomic, strong, readwrite) HSFTableViewDelegate *tableViewDelegate;
-
-@property (nonatomic, strong, readonly) NSArray<HSFClipboardItem *> *items;
 
 @end
 
@@ -40,7 +37,7 @@
 	self.modelController = [[HSFModelController alloc] init];
 	self.modelController.delegate = self;
 
-	self.dataSource = [[HSFTableViewDataSource alloc] initWithModelController:self.modelController];
+	self.dataSource = [[HSFTodayTableViewDataSource alloc] initWithModelController:self.modelController];
 	self.itemsTableView.dataSource = self.dataSource;
 
 	self.tableViewDelegate = [[HSFTableViewDelegate alloc] init];
@@ -78,7 +75,7 @@
 {
 	CGPoint location = [sender locationInView:self.view];
 	NSIndexPath *indexPath = [self.itemsTableView indexPathForRowAtPoint:location];
-	NSString *selectedValue = self.items[indexPath.item].text;
+	NSString *selectedValue = self.dataSource.items[indexPath.item].text;
 	NSDictionary *items = [NSDictionary dictionaryWithObject:selectedValue forKey:(NSString *)kUTTypeUTF8PlainText];
 	[[UIPasteboard generalPasteboard] setItems:@[items]];
 }

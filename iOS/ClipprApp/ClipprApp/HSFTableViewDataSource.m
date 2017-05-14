@@ -57,7 +57,6 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	if (items.count > 0)
 	{
 		HSFClipboardItem *clipboardItem = [items objectAtIndex:indexPath.row];
-		NSLog(@"%@", clipboardItem.text);
 		cell.textLabel.text = clipboardItem.text;
 	}
 
