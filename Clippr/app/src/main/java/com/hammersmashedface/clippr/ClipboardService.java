@@ -28,25 +28,23 @@ public class ClipboardService extends Service {
                 long date = new Date().getTime();
 
                 TextItem item = new TextItem(text, date);
-                serverManager.copyItem(item, new ServerManager.CopyHandler() {
-                    @Override
-                    public void handleItem(TextItem item) {
-                        if (item != null) {
-                            String currentText = clipboardManager.getText().toString();
-
-                            // TODO: This is a workaround
-                            // Fix copy-paste cycle to clipboard
-                            if (!currentText.equals(item.getText())) {
-                                clipboardManager.setText(item.getText());
-                            }
-                        }
-
-                    }
-                });
+                serverManager.copyItem(item);
             }
         });
 
         serverManager = new ServerManager(SERVER_URI);
+        serverManager.addCopyHandler(new ServerManager.CopyHandler() {
+            @Override
+            public void handleItem(TextItem item) {
+                String currentText = clipboardManager.getText().toString();
+
+                // TODO: This is a workaround
+                // Fix copy-paste cycle to clipboard
+                if (!currentText.equals(item.getText())) {
+                    clipboardManager.setText(item.getText());
+                }
+            }
+        });
         serverManager.connect();
     }
 

@@ -22,12 +22,16 @@ public class ServerManager {
 
     private Socket socket;
 
+    private List<CopyHandler> copyHandlers;
+
     public ServerManager(String uri) {
         try {
             socket = IO.socket(uri);
         } catch (URISyntaxException exception) {
-            Log.e(getClass().getName(), exception.getMessage());
+            Log.e(TAG, exception.getMessage());
         }
+
+        copyHandlers = new ArrayList<>();
     }
 
     public void connect() {
@@ -49,21 +53,41 @@ public class ServerManager {
                 Log.i(TAG, Socket.EVENT_DISCONNECT);
             }
         });
+        socket.on(EVENT_COPY_TEXT, new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                try {
+                    JSONObject json = (JSONObject) args[0];
+                    TextItem item = new TextItem(json);
+
+                    for (CopyHandler handler : copyHandlers) {
+                        handler.handleItem(item);
+                    }
+                } catch (JSONException exception) {
+                    Log.e(TAG, exception.getMessage());
+                }
+            }
+        });
         socket.connect();
     }
 
-    public void copyItem(TextItem item, final ServerManager.CopyHandler handler) {
+    public void copyItem(TextItem item) {
         try {
-            if (handler != null) {
-                socket.on(EVENT_COPY_TEXT, handler);
-            }
-
             JSONObject json = item.getJSONObject();
             socket.emit(EVENT_COPY_TEXT, json);
         } catch (JSONException exception) {
             Log.e(TAG, exception.getMessage());
         }
     }
+
+    public void addCopyHandler(CopyHandler copyHandler) {
+        copyHandlers.add(copyHandler);
+    }
+
+    public void removeCopyHandler(CopyHandler copyHandler) {
+        copyHandlers.remove(copyHandler);
+    }
+
 
     public void fetchHistory(final ServerManager.HistoryHandler handler) {
         if (handler != null) {

@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends ListActivity {
@@ -20,6 +21,7 @@ public class MainActivity extends ListActivity {
     private ClipboardManager clipboardManager;
 
     List<String> textList = new ArrayList<>();
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +38,38 @@ public class MainActivity extends ListActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        updateListView(items);
+                        Collections.sort(items, new Comparator<TextItem>() {
+                            @Override
+                            public int compare(TextItem firstItem, TextItem secondItem) {
+                                return firstItem.getTimestamp() > secondItem.getTimestamp() ? -1 : 1;
+                            }
+                        });
+
+                        for (TextItem item : items) {
+                            textList.add(item.getText());
+                        }
+
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        });
+        serverManager.addCopyHandler(new ServerManager.CopyHandler() {
+            @Override
+            public void handleItem(TextItem item) {
+                textList.add(0, item.getText());
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
                     }
                 });
             }
         });
 
         startClipboardService();
+        setupListView();
     }
 
     private void startClipboardService() {
@@ -50,14 +77,11 @@ public class MainActivity extends ListActivity {
         startService(clipboardService);
     }
 
-    private void updateListView(List<TextItem> items) {
-        for (TextItem item : items) {
-            textList.add(item.getText());
-        }
+    private void setupListView() {
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textList);
+        setListAdapter(adapter);
 
-        ListView listView = getListView();
-        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textList.toArray(new String[textList.size()])));
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 clipboardManager.setText(textList.get(position));
