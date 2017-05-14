@@ -5,15 +5,21 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends ListActivity {
 
     private ServerManager serverManager;
     private ClipboardManager clipboardManager;
+
+    List<String> textList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +51,21 @@ public class MainActivity extends ListActivity {
     }
 
     private void updateListView(List<TextItem> items) {
-        String[] textArray = new String[items.size()];
-        for (int i = 0; i < items.size(); i++) {
-            textArray[i] = items.get(i).getText();
+        for (TextItem item : items) {
+            textList.add(item.getText());
         }
 
         ListView listView = getListView();
-        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textArray));
+        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textList.toArray(new String[textList.size()])));
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                clipboardManager.setText(textList.get(position));
+
+                Toast.makeText(getApplicationContext(), "Copied", Toast.LENGTH_SHORT).show();
+
+                return true;
+            }
+        });
     }
 }
