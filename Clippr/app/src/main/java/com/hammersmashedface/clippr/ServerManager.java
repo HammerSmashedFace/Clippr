@@ -2,6 +2,7 @@ package com.hammersmashedface.clippr;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -97,9 +98,10 @@ public class ServerManager {
         public final void call(Object... args) {
             List<TextItem> list = new ArrayList<>();
 
-            for (Object object : args) {
+            JSONArray jsonArray = (JSONArray)args[0];
+            for (int i = 0; i < jsonArray.length(); i++) {
                 try {
-                    list.add(new TextItem((JSONObject)object));
+                    list.add(new TextItem((JSONObject) jsonArray.get(i)));
                 } catch (JSONException exception) {
                     Log.e(TAG, exception.getMessage());
                 }
