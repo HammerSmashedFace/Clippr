@@ -9,12 +9,6 @@
 #import "HSFJSONManager.h"
 #import "HSFEventManager.h"
 
-@interface HSFJSONManager () <HSFEventManagerDelegate>
-
-
-
-@end
-
 @implementation HSFJSONManager
 
 - (void)eventManager:(HSFEventManager *)manager didReceiveData:(NSDictionary *)data

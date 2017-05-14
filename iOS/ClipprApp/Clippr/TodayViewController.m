@@ -7,9 +7,9 @@
 //
 
 #import "TodayViewController.h"
-#import "HSFDataController.h"
-#import "HSFEventManager.h"
-#import "HSFJSONManager.h"
+#import "HSFTodayTableViewDataSource.h"
+#import "HSFTableViewDelegate.h"
+#import "HSFModelController.h"
 #import "HSFClipboardItem.h"
 
 #import "HSFCustomTableViewCell.h"
@@ -17,15 +17,13 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <NotificationCenter/NotificationCenter.h>
 
-NSString *kHSFTodayViewControllerContext = @"com.HammerSmashedFace.Clippr";
-NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
-@interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource>
+@interface TodayViewController () <NCWidgetProviding, UITableViewDelegate, UITableViewDataSource, HSFModelControllerDelegate>
 
 @property (nonatomic, weak, nonatomic) IBOutlet UITableView *itemsTableView;
-@property (nonatomic, strong, readwrite) HSFDataController *dataController;
-@property (nonatomic, strong, readwrite) HSFEventManager *eventManager;
-@property (nonatomic, strong, readwrite) HSFJSONManager *jsonManager;
+@property (nonatomic, strong, readwrite) HSFModelController *modelController;
+@property (nonatomic, strong, readwrite) HSFTableViewDataSource *dataSource;
+@property (nonatomic, strong, readwrite) HSFTableViewDelegate *tableViewDelegate;
 
 @property (nonatomic, strong, readonly) NSArray<HSFClipboardItem *> *items;
 
@@ -39,46 +37,19 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 	self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
 
-	self.dataController = [[HSFDataController alloc] init];
-	self.eventManager = [[HSFEventManager alloc] init];
-	self.jsonManager = [[HSFJSONManager alloc] init];
+	self.modelController = [[HSFModelController alloc] init];
+	self.modelController.delegate = self;
 
-	[self.eventManager configureSocket];
+	self.dataSource = [[HSFTableViewDataSource alloc] initWithModelController:self.modelController];
+	self.itemsTableView.dataSource = self.dataSource;
 
-	self.dataController.delegate = (id<HSFDataControllerDelegate>)self.eventManager;
-	self.eventManager.delegate = (id<HSFEventManagerDelegate>)self.jsonManager;
-	self.jsonManager.delegate = (id<HSFJSONManagerDelegate>)self.dataController;
-
-	[self.dataController addObserver:self forKeyPath:@"items" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:&kHSFTodayViewControllerContext];
-}
-
-- (void)dealloc
-{
-	[_dataController removeObserver:self forKeyPath:@"items"];
+	self.tableViewDelegate = [[HSFTableViewDelegate alloc] init];
+	self.itemsTableView.delegate = self.tableViewDelegate;
 }
 
 - (UIPasteboard *)pasteboard
 {
 	return [UIPasteboard generalPasteboard];
-}
-
-- (NSArray<HSFClipboardItem *> *)items
-{
-	NSMutableArray *result = [NSMutableArray array];
-
-	if (self.dataController.items.count != 0)
-	{
-		NSInteger itemsCount = self.dataController.items.count;
-		NSInteger rangeLength = itemsCount > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : itemsCount;
-		NSInteger rangeLocation = itemsCount > kHSFTodayViewControllerMaxItems ? itemsCount - kHSFTodayViewControllerMaxItems : 0;
-		NSRange indexesRange = NSMakeRange(rangeLocation, rangeLength);
-		NSArray *rangedItems = [self.dataController.items objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:indexesRange]];
-
-		NSSortDescriptor *sortDescripted = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-		[result addObjectsFromArray:[rangedItems sortedArrayUsingDescriptors:@[sortDescripted]]];
-	}
-	
-	return result;
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,6 +59,21 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 
 #pragma mark - UITableView methods
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return [self.dataSource tableView:tableView numberOfRowsInSection:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return [self.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return [self.tableViewDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
 - (IBAction)longTapRecognizer:(UILongPressGestureRecognizer *)sender
 {
 	CGPoint location = [sender locationInView:self.view];
@@ -95,36 +81,6 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	NSString *selectedValue = self.items[indexPath.item].text;
 	NSDictionary *items = [NSDictionary dictionaryWithObject:selectedValue forKey:(NSString *)kUTTypeUTF8PlainText];
 	[[UIPasteboard generalPasteboard] setItems:@[items]];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	return 82.0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	return self.items.count > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : self.items.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	HSFCustomTableViewCell *cell = (HSFCustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kHSFCustomTableViewCellIdentifier];
-
-	if (cell == nil)
-	{
-		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
-		cell = [nib objectAtIndex:0];
-	}
-
-	NSArray *items = self.items;
-	if (items.count > 0)
-	{
-		HSFClipboardItem *clipboardItem = [items objectAtIndex:indexPath.row];
-		cell.textLabel.text = clipboardItem.text;
-	}
-
-	return cell;
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler
@@ -146,18 +102,11 @@ NSInteger const kHSFTodayViewControllerMaxItems = 3;
 	}
 }
 
-#pragma mark - Observing
+#pragma mark - HSFModelControllerDelegate
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+- (void)modelControllerDidUpdateHistory:(HSFModelController *)controller
 {
-	if (context == &kHSFTodayViewControllerContext && object == self.dataController && [keyPath isEqualToString:@"items"])
-	{
-		[self.itemsTableView reloadData];
-	}
-	else
-	{
-		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-	}
+	[self.itemsTableView reloadData];
 }
 
 @end

@@ -33,6 +33,17 @@
 		9B60B2361EC7939D007F1525 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B60B2351EC7939D007F1525 /* SocketIO.framework */; };
 		9B610A621EC7C31100274082 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B610A611EC7C31100274082 /* CustomTableViewCell.xib */; };
 		9B610A651EC7C3AB00274082 /* HSFCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */; };
+		9B610A681EC81A3F00274082 /* HSFModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A671EC81A3F00274082 /* HSFModelController.m */; };
+		9B610A691EC81A4300274082 /* HSFModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A671EC81A3F00274082 /* HSFModelController.m */; };
+		9B610A6D1EC81D9300274082 /* HSFTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A6C1EC81D9300274082 /* HSFTableViewDataSource.m */; };
+		9B610A6E1EC81E5E00274082 /* HSFCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */; };
+		9B610A711EC81E9300274082 /* HSFTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A701EC81E9300274082 /* HSFTableViewDelegate.m */; };
+		9B610A721EC827C100274082 /* HSFTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A6C1EC81D9300274082 /* HSFTableViewDataSource.m */; };
+		9B610A731EC827C200274082 /* HSFTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A6C1EC81D9300274082 /* HSFTableViewDataSource.m */; };
+		9B610A741EC827C400274082 /* HSFTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A701EC81E9300274082 /* HSFTableViewDelegate.m */; };
+		9B610A751EC827C400274082 /* HSFTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A701EC81E9300274082 /* HSFTableViewDelegate.m */; };
+		9B610A761EC827C700274082 /* HSFCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */; };
+		9B610A791EC82A6300274082 /* HSFTodayTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B610A781EC82A6300274082 /* HSFTodayTableViewDataSource.m */; };
 		9BED134C1EC79482002A7D74 /* HSFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B33EBD81EC76ED200E35D1B /* HSFEventManager.m */; };
 /* End PBXBuildFile section */
 
@@ -114,8 +125,16 @@
 		9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFJSONManager.m; sourceTree = "<group>"; };
 		9B60B2351EC7939D007F1525 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = "../../../../Shared/ClipprApp-drksqrcebnmlzhcewjnalnnyqmlj/Build/Products/Debug-iphonesimulator/Socket.IO-Client-Swift/SocketIO.framework"; sourceTree = "<group>"; };
 		9B610A611EC7C31100274082 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
-		9B610A631EC7C3AB00274082 /* HSFCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFCustomTableViewCell.h; sourceTree = "<group>"; };
-		9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFCustomTableViewCell.m; sourceTree = "<group>"; };
+		9B610A631EC7C3AB00274082 /* HSFCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSFCustomTableViewCell.h; path = ../Clippr/HSFCustomTableViewCell.h; sourceTree = "<group>"; };
+		9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSFCustomTableViewCell.m; path = ../Clippr/HSFCustomTableViewCell.m; sourceTree = "<group>"; };
+		9B610A661EC81A3F00274082 /* HSFModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFModelController.h; sourceTree = "<group>"; };
+		9B610A671EC81A3F00274082 /* HSFModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFModelController.m; sourceTree = "<group>"; };
+		9B610A6B1EC81D9300274082 /* HSFTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTableViewDataSource.h; sourceTree = "<group>"; };
+		9B610A6C1EC81D9300274082 /* HSFTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTableViewDataSource.m; sourceTree = "<group>"; };
+		9B610A6F1EC81E9300274082 /* HSFTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTableViewDelegate.h; sourceTree = "<group>"; };
+		9B610A701EC81E9300274082 /* HSFTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTableViewDelegate.m; sourceTree = "<group>"; };
+		9B610A771EC82A6300274082 /* HSFTodayTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFTodayTableViewDataSource.h; sourceTree = "<group>"; };
+		9B610A781EC82A6300274082 /* HSFTodayTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFTodayTableViewDataSource.m; sourceTree = "<group>"; };
 		9F2E967743B4AE1AB4C8BB04 /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		A9730029DEA5356F01F08C74 /* Pods_Clippr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clippr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3FDBCA9D1B48C2B481ACE6C /* Pods-Clippr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clippr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clippr/Pods-Clippr.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +229,7 @@
 		9B33EB741EC75FD300E35D1B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9B610A6A1EC81D8300274082 /* Table */,
 				9B33EBDA1EC7729500E35D1B /* Server */,
 				9B33EBD01EC76CC200E35D1B /* Model */,
 				9B33EB5F1EC7547400E35D1B /* AppDelegate.h */,
@@ -272,8 +292,8 @@
 			children = (
 				9B33EB911EC7615C00E35D1B /* TodayViewController.h */,
 				9B33EB921EC7615C00E35D1B /* TodayViewController.m */,
-				9B610A631EC7C3AB00274082 /* HSFCustomTableViewCell.h */,
-				9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */,
+				9B610A771EC82A6300274082 /* HSFTodayTableViewDataSource.h */,
+				9B610A781EC82A6300274082 /* HSFTodayTableViewDataSource.m */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -295,6 +315,8 @@
 				9B33EBD21EC76CC900E35D1B /* HSFClipboardItem.m */,
 				9B33EBD31EC76CC900E35D1B /* HSFDataController.h */,
 				9B33EBD41EC76CC900E35D1B /* HSFDataController.m */,
+				9B610A661EC81A3F00274082 /* HSFModelController.h */,
+				9B610A671EC81A3F00274082 /* HSFModelController.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -308,6 +330,19 @@
 				9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */,
 			);
 			name = Server;
+			sourceTree = "<group>";
+		};
+		9B610A6A1EC81D8300274082 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				9B610A631EC7C3AB00274082 /* HSFCustomTableViewCell.h */,
+				9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */,
+				9B610A6B1EC81D9300274082 /* HSFTableViewDataSource.h */,
+				9B610A6C1EC81D9300274082 /* HSFTableViewDataSource.m */,
+				9B610A6F1EC81E9300274082 /* HSFTableViewDelegate.h */,
+				9B610A701EC81E9300274082 /* HSFTableViewDelegate.m */,
+			);
+			name = Table;
 			sourceTree = "<group>";
 		};
 		BD75099C42F262AEF3762913 /* Pods */ = {
@@ -590,9 +625,13 @@
 			files = (
 				9B33EB641EC7547400E35D1B /* ViewController.m in Sources */,
 				9B33EBD61EC76CC900E35D1B /* HSFDataController.m in Sources */,
+				9B610A6D1EC81D9300274082 /* HSFTableViewDataSource.m in Sources */,
+				9B610A711EC81E9300274082 /* HSFTableViewDelegate.m in Sources */,
 				9B33EBD91EC76ED200E35D1B /* HSFEventManager.m in Sources */,
 				9B33EBDD1EC772AB00E35D1B /* HSFJSONManager.m in Sources */,
 				9B33EBD51EC76CC900E35D1B /* HSFClipboardItem.m in Sources */,
+				9B610A6E1EC81E5E00274082 /* HSFCustomTableViewCell.m in Sources */,
+				9B610A681EC81A3F00274082 /* HSFModelController.m in Sources */,
 				9B33EB611EC7547400E35D1B /* AppDelegate.m in Sources */,
 				9B33EB5E1EC7547400E35D1B /* main.m in Sources */,
 			);
@@ -602,6 +641,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B610A741EC827C400274082 /* HSFTableViewDelegate.m in Sources */,
+				9B610A731EC827C200274082 /* HSFTableViewDataSource.m in Sources */,
+				9B610A761EC827C700274082 /* HSFCustomTableViewCell.m in Sources */,
 				9B33EB7E1EC7609A00E35D1B /* KeyboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,9 +654,13 @@
 			files = (
 				9BED134C1EC79482002A7D74 /* HSFEventManager.m in Sources */,
 				9B33EBE01EC7914C00E35D1B /* HSFDataController.m in Sources */,
+				9B610A721EC827C100274082 /* HSFTableViewDataSource.m in Sources */,
 				9B610A651EC7C3AB00274082 /* HSFCustomTableViewCell.m in Sources */,
+				9B610A691EC81A4300274082 /* HSFModelController.m in Sources */,
 				9B33EBE11EC7915400E35D1B /* HSFClipboardItem.m in Sources */,
+				9B610A751EC827C400274082 /* HSFTableViewDelegate.m in Sources */,
 				9B33EB931EC7615C00E35D1B /* TodayViewController.m in Sources */,
+				9B610A791EC82A6300274082 /* HSFTodayTableViewDataSource.m in Sources */,
 				9B33EBDF1EC7914800E35D1B /* HSFJSONManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

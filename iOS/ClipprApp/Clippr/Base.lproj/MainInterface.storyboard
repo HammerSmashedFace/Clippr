@@ -36,8 +36,6 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="8Li-K9-Dam"/>
-                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="97t-1t-Q0x"/>
                                     <outletCollection property="gestureRecognizers" destination="rtw-94-ZMT" appends="YES" id="FoF-6j-TaU"/>
                                 </connections>
                             </tableView>

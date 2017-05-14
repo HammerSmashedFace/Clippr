@@ -7,8 +7,19 @@
 //
 
 #import "ViewController.h"
+#import "HSFModelController.h"
+#import "HSFClipboardItem.h"
+#import "HSFTableViewDelegate.h"
+#import "HSFTableViewDataSource.h"
 
-@interface ViewController ()
+#import <MobileCoreServices/MobileCoreServices.h>
+
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource, HSFModelControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *historyTableView;
+@property (nonatomic, strong, readwrite) HSFModelController *modelController;
+@property (nonatomic, strong, readwrite) HSFTableViewDataSource *dataSource;
+@property (nonatomic, strong, readwrite) HSFTableViewDelegate *tableViewDelegate;
 
 @end
 
@@ -17,15 +28,59 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+	self.modelController = [[HSFModelController alloc] init];
+	self.modelController.delegate = self;
+
+	self.dataSource = [[HSFTableViewDataSource alloc] initWithModelController:self.modelController];
+	self.historyTableView.dataSource = self.dataSource;
+
+	self.tableViewDelegate = [[HSFTableViewDelegate alloc] init];
+	self.historyTableView.delegate = self.tableViewDelegate;
 }
 
 
 - (void)didReceiveMemoryWarning
 {
 	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - UITableView methods
+
+- (IBAction)longTapRecognizer:(UILongPressGestureRecognizer *)sender
+{
+	CGPoint location = [sender locationInView:self.view];
+	NSIndexPath *indexPath = [self.historyTableView indexPathForRowAtPoint:location];
+	NSString *selectedValue = self.modelController.items[indexPath.item].text;
+	NSDictionary *items = [NSDictionary dictionaryWithObject:selectedValue forKey:(NSString *)kUTTypeUTF8PlainText];
+	[[UIPasteboard generalPasteboard] setItems:@[items]];
+}
+
+
+
+#pragma mark - Observing
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return [self.dataSource tableView:tableView numberOfRowsInSection:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return [self.dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return [self.tableViewDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+#pragma mark - HSFModelControllerDelegate
+
+- (void)modelControllerDidUpdateHistory:(HSFModelController *)controller
+{
+	[self.historyTableView reloadData];
+}
 
 @end
