@@ -14,6 +14,8 @@
 
 @implementation SFClipboardItem
 
+@synthesize author = _author;
+
 - (instancetype)initWithName:(NSString *)name source:(NSRunningApplication *)source
 {
 	self = [super init];
@@ -22,6 +24,7 @@
 		_name = [name copy];
 		_source = [source retain];
 		_creationDate = [[NSDate date] retain];
+		_author = [@"MAC" copy];
 	}
 	return self;
 }
@@ -34,6 +37,7 @@
 	{
 		_creationDate = [[NSDate dateWithTimeIntervalSince1970:[dictionaryRepresentation[@"timestamp"] doubleValue] / 1000.0] retain];
 		_type = [NSPasteboardTypeString copy];
+		_author = [dictionaryRepresentation[@"author"] copy];
 	}
 	return self;
 }
@@ -43,6 +47,7 @@
 	return @{
 	  @"text" : self.name,
 	  @"bundleID" : self.source.bundleIdentifier,
+	  @"author" : self.author,
 	  @"timestamp" : [NSString stringWithFormat:@"%f", [self.creationDate timeIntervalSince1970] * 1000.0],
 	  @"type" : self.type};
 }

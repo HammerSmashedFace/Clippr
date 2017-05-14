@@ -93,7 +93,11 @@
 			{
 				for (NSDictionary *itemDicitionary in array)
 				{
-					[((NSMutableArray *)self.items) insertObject:[[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease] atIndex:0];
+					SFClipboardItem *clipboardItem = [[[SFClipboardItem alloc] initWithDictionaryRepresentation:itemDicitionary] autorelease];
+					if (![self.items.firstObject.name isEqualToString:clipboardItem.name])
+					{
+						[((NSMutableArray *)self.items) insertObject:clipboardItem atIndex:0];
+					}
 				}
 			}];
 		});

@@ -21,26 +21,20 @@
 	NSURL *url = [[NSURL alloc] initWithString:@"http://crowley-m-pc.zeo.lcl:3000"];
 	SocketIOClient *socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
 	
-	[socket on:@"connect" callback:^(NSArray *data, SocketAckEmitter *ack)
+	[socket once:@"connect" callback:^(NSArray *data, SocketAckEmitter *ack)
 	{
 		NSLog(@"socket connected");
 	}];
 	
-	[socket on:@"currentAmount" callback:^(NSArray *data, SocketAckEmitter *ack)
-	{
-		double cur = [[data objectAtIndex:0] floatValue];
-		
-		[[socket emitWithAck:@"canUpdate" with:@[@(cur)]] timingOutAfter:0 callback:^(NSArray *data)
-		{
-			[socket emit:@"update" with:@[@{@"amount": @(cur + 2.50)}]];
-		}];
-		
-		[ack with:@[@"Got your currentAmount, ", @"dude"]];
-	}];
-	
 	[socket connect];
 	self.socket = socket;
-	[self.socket emit:@"history" with:@[]];
+	[socket emit:@"history" with:@[]];
+	
+	[socket once:@"disconnect" callback:^(NSArray * _Nonnull array, SocketAckEmitter * _Nonnull emitter)
+	{
+		[socket removeAllHandlers];
+		[self connect];
+	}];
 }
 
 - (void)copyItem:(SFClipboardItem *)item
@@ -51,12 +45,12 @@
 - (void)getHistoryWithCompletionBlock:(void (^ _Nonnull)(NSArray * _Nonnull, SocketAckEmitter * _Nonnull))completionBlock
 {
 	[self.socket emit:@"history" with:@[]];
-	[self.socket on:@"history" callback:completionBlock];
+	[self.socket once:@"history" callback:completionBlock];
 }
 
 - (void)getMessageWithCompletionBlock:(void (^)(NSArray * _Nonnull, SocketAckEmitter * _Nonnull))completionBlock
 {
-	[self.socket on:@"copy_text" callback:completionBlock];
+	[self.socket once:@"copy_text" callback:completionBlock];
 }
 
 @end

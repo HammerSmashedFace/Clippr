@@ -75,11 +75,6 @@
 	[self.windowController showWindow:self.statusItem];
 }
 
-- (void)applicationDidBecomeActive:(NSNotification *)notification
-{
-	[NSApp hide:self];
-}
-
 - (SFWindowController *)windowController
 {
 	if (_windowController == nil)

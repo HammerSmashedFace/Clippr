@@ -18,6 +18,7 @@
 		BD923B131EC716B300DDDDB4 /* SFWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BD923B121EC716B300DDDDB4 /* SFWindow.m */; };
 		BD94C1A21EC77B7600413F1B /* SFSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BD94C1A11EC77B7600413F1B /* SFSocketManager.m */; };
 		BD94C1A51EC7B6BA00413F1B /* SFRTFClipboardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BD94C1A41EC7B6BA00413F1B /* SFRTFClipboardItem.m */; };
+		BDDBE31F1EC8537500F3CDB8 /* SFAuthorImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDBE31E1EC8537500F3CDB8 /* SFAuthorImageTransformer.m */; };
 		CCF1E96497E82693C4D29D25 /* Pods_Clippr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A728C910678C29C6234FF93 /* Pods_Clippr.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		BD94C1A11EC77B7600413F1B /* SFSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSocketManager.m; sourceTree = "<group>"; };
 		BD94C1A31EC7B6BA00413F1B /* SFRTFClipboardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFRTFClipboardItem.h; sourceTree = "<group>"; };
 		BD94C1A41EC7B6BA00413F1B /* SFRTFClipboardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFRTFClipboardItem.m; sourceTree = "<group>"; };
+		BDDBE31D1EC8537500F3CDB8 /* SFAuthorImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFAuthorImageTransformer.h; sourceTree = "<group>"; };
+		BDDBE31E1EC8537500F3CDB8 /* SFAuthorImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFAuthorImageTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				BD923B111EC716B300DDDDB4 /* SFWindow.h */,
 				BD923B121EC716B300DDDDB4 /* SFWindow.m */,
 				BD923B071EC6FE3900DDDDB4 /* Model */,
+				BDDBE31D1EC8537500F3CDB8 /* SFAuthorImageTransformer.h */,
+				BDDBE31E1EC8537500F3CDB8 /* SFAuthorImageTransformer.m */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				BD94C1A51EC7B6BA00413F1B /* SFRTFClipboardItem.m in Sources */,
 				BD923B131EC716B300DDDDB4 /* SFWindow.m in Sources */,
 				BD923AFC1EC6F91000DDDDB4 /* SFClipboardManager.m in Sources */,
+				BDDBE31F1EC8537500F3CDB8 /* SFAuthorImageTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

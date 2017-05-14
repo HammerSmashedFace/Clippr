@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy, readonly) NSString *author;
 @property (nonatomic, retain) NSRunningApplication *source;
 @property (nonatomic, retain) NSDate *creationDate;
 

@@ -14,11 +14,28 @@
 #import <Carbon/Carbon.h>
 
 @interface SFWindowController () <NSWindowDelegate>
+
 @property (assign) IBOutlet NSTableView *tableView;
+
+@property (nonatomic, copy, readonly) NSPredicate *filterPredicate;
+@property (nonatomic, copy) NSString *searchPhrase;
 
 @end
 
 @implementation SFWindowController
+
+- (NSPredicate *)filterPredicate
+{
+	return self.searchPhrase ? [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings)
+	{
+		return [((SFClipboardItem *)evaluatedObject).name containsString:self.searchPhrase];
+	}] : nil;
+}
+
++ (NSSet<NSString *> *)keyPathsForValuesAffectingFilterPredicate
+{
+	return [NSSet setWithObject:@"searchPhrase"];
+}
 
 - (void)windowDidLoad
 {
@@ -29,8 +46,15 @@
 - (IBAction)tableAction:(id)sender
 {
 	SFClipboardItem *selectedItem = self.manager.items[[self.tableView selectedRow]];
-	[self.window orderOut:nil];
+	[NSApp hide:self];
 	[self.manager pasteItem:selectedItem];
+}
+
+- (IBAction)closeWindow:(id)sender
+{
+	self.window.delegate = nil;
+	[self close];
+	self.window.delegate = self;
 }
 
 - (void)moveDown:(id)sender
