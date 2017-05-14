@@ -36,13 +36,7 @@ public class ClipboardService extends Service {
         serverManager.addCopyHandler(new ServerManager.CopyHandler() {
             @Override
             public void handleItem(TextItem item) {
-                String currentText = clipboardManager.getText().toString();
-
-                // TODO: This is a workaround
-                // Fix copy-paste cycle to clipboard
-                if (!currentText.equals(item.getText())) {
-                    clipboardManager.setText(item.getText());
-                }
+                clipboardManager.setText(item.getText());
             }
         });
         serverManager.connect();
