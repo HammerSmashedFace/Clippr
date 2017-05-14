@@ -130,7 +130,7 @@
 		9B33EBDB1EC772AB00E35D1B /* HSFJSONManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFJSONManager.h; sourceTree = "<group>"; };
 		9B33EBDC1EC772AB00E35D1B /* HSFJSONManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFJSONManager.m; sourceTree = "<group>"; };
 		9B60B2351EC7939D007F1525 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = "../../../../Shared/ClipprApp-drksqrcebnmlzhcewjnalnnyqmlj/Build/Products/Debug-iphonesimulator/Socket.IO-Client-Swift/SocketIO.framework"; sourceTree = "<group>"; };
-		9B610A611EC7C31100274082 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		9B610A611EC7C31100274082 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = ../Clippr/CustomTableViewCell.xib; sourceTree = "<group>"; };
 		9B610A631EC7C3AB00274082 /* HSFCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSFCustomTableViewCell.h; path = ../Clippr/HSFCustomTableViewCell.h; sourceTree = "<group>"; };
 		9B610A641EC7C3AB00274082 /* HSFCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSFCustomTableViewCell.m; path = ../Clippr/HSFCustomTableViewCell.m; sourceTree = "<group>"; };
 		9B610A661EC81A3F00274082 /* HSFModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFModelController.h; sourceTree = "<group>"; };
@@ -251,6 +251,7 @@
 		9B33EB751EC75FD900E35D1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B610A611EC7C31100274082 /* CustomTableViewCell.xib */,
 				9B33EB651EC7547400E35D1B /* Main.storyboard */,
 				9B33EB681EC7547400E35D1B /* Assets.xcassets */,
 				9B33EB6A1EC7547400E35D1B /* LaunchScreen.storyboard */,
@@ -312,7 +313,6 @@
 		9B33EB9F1EC7616900E35D1B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9B610A611EC7C31100274082 /* CustomTableViewCell.xib */,
 				9B33EB941EC7615C00E35D1B /* MainInterface.storyboard */,
 				9B33EB971EC7615C00E35D1B /* Info.plist */,
 			);

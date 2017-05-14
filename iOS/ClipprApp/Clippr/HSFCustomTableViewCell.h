@@ -13,5 +13,6 @@ extern NSString *const kHSFCustomTableViewCellIdentifier;
 @interface HSFCustomTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

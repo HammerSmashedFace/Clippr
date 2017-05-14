@@ -9,6 +9,7 @@
 #import "HSFTodayTableViewDataSource.h"
 #import "HSFClipboardItem.h"
 #import "HSFModelController.h"
+#import "HSFCustomTableViewCell.h"
 
 @implementation HSFTodayTableViewDataSource
 
@@ -31,9 +32,31 @@
 	return result;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return self.items.count > kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : self.items.count;
+	return self.items.count >= kHSFTodayViewControllerMaxItems ? kHSFTodayViewControllerMaxItems : self.items.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	HSFCustomTableViewCell *cell = (HSFCustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kHSFCustomTableViewCellIdentifier];
+
+	if (cell == nil)
+	{
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+		cell = [nib objectAtIndex:0];
+	}
+
+	NSArray *items = self.items;
+	if (items.count > 0)
+	{
+		HSFClipboardItem *clipboardItem = [items objectAtIndex:indexPath.row];
+		cell.textLabel.text = clipboardItem.text;
+
+		[cell.dateLabel removeFromSuperview];
+	}
+
+	return cell;
 }
 
 @end

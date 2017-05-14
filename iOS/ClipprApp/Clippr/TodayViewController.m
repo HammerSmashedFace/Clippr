@@ -73,7 +73,7 @@
 
 - (IBAction)longTapRecognizer:(UILongPressGestureRecognizer *)sender
 {
-	CGPoint location = [sender locationInView:self.view];
+	CGPoint location = [sender locationInView:self.itemsTableView];
 	NSIndexPath *indexPath = [self.itemsTableView indexPathForRowAtPoint:location];
 	NSString *selectedValue = self.dataSource.items[indexPath.item].text;
 	NSDictionary *items = [NSDictionary dictionaryWithObject:selectedValue forKey:(NSString *)kUTTypeUTF8PlainText];
@@ -91,12 +91,20 @@
 {
 	if (activeDisplayMode == NCWidgetDisplayModeExpanded)
 	{
-		self.preferredContentSize = CGSizeMake(0.0, 245.0);
+		self.preferredContentSize = CGSizeMake(0.0, 220.0);
 	}
 	else if (activeDisplayMode == NCWidgetDisplayModeCompact)
 	{
-		self.preferredContentSize = CGSizeMake(0.0, 82.0);
+		self.preferredContentSize = CGSizeMake(0.0, 150);
 	}
+}
+
+#pragma mark - IBActions
+
+- (IBAction)addButtonDidPress:(UIButton *)sender
+{
+	NSString *lastCopiedText = [UIPasteboard generalPasteboard].string;
+	[self.modelController addItem:[[HSFClipboardItem alloc] initWithText:lastCopiedText]];
 }
 
 #pragma mark - HSFModelControllerDelegate

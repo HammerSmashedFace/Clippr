@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="244.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jw0-Nb-wX1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="244.66666666666666"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="-1" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jw0-Nb-wX1">
+                                <rect key="frame" x="0.0" y="49" width="320" height="196"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextIdentifier" rowHeight="77" id="7Xf-sT-3dd" customClass="HSFCustomTableViewCell">
@@ -39,12 +39,23 @@
                                     <outletCollection property="gestureRecognizers" destination="rtw-94-ZMT" appends="YES" id="FoF-6j-TaU"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6S-oN-wWn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Copy"/>
+                                <connections>
+                                    <action selector="addButtonDidPress:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="OXC-tQ-ao3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="I6S-oN-wWn" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="7WW-gU-ug2"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Jw0-Nb-wX1" secondAttribute="bottom" id="7lg-fd-RR6"/>
                             <constraint firstItem="Jw0-Nb-wX1" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="NSD-Ow-IYC"/>
                             <constraint firstAttribute="trailing" secondItem="Jw0-Nb-wX1" secondAttribute="trailing" id="Pwi-Jq-Q4n"/>
-                            <constraint firstItem="Jw0-Nb-wX1" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="r71-SY-Pmc"/>
+                            <constraint firstItem="I6S-oN-wWn" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="VQZ-nt-hhC"/>
+                            <constraint firstItem="Jw0-Nb-wX1" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="49" id="r71-SY-Pmc"/>
+                            <constraint firstAttribute="trailing" secondItem="I6S-oN-wWn" secondAttribute="trailing" id="rfR-VF-rdS"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>

@@ -51,12 +51,12 @@
 - (instancetype)initWithJSONRepresentation:(NSDictionary *)representation
 {
 	NSNumber *timestamp = representation[@"timestamp"];
-	return [self initWithText:representation[@"text"] date:[NSDate dateWithTimeIntervalSince1970:timestamp.intValue]];
+	return [self initWithText:representation[@"text"] date:[NSDate dateWithTimeIntervalSince1970:timestamp.doubleValue / 1000.0]];
 }
 
 - (NSDictionary *)jsonRepresentation
 {
-	return @{ @"text" : self.text, @"date" : @(self.date.timeIntervalSince1970) };
+	return @{ @"text" : self.text, @"date" : @(self.date.timeIntervalSince1970), @"author" : @"iOS" };
 }
 
 @end

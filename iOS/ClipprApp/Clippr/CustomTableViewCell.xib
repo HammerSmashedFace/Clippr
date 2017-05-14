@@ -12,30 +12,38 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" rowHeight="30" id="9ag-ID-Rof" customClass="HSFCustomTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="387" height="82"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomTableViewCell" rowHeight="48" id="9ag-ID-Rof" customClass="HSFCustomTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9ag-ID-Rof" id="fod-UQ-kzm">
-                <rect key="frame" x="0.0" y="0.0" width="387" height="81"/>
+                <rect key="frame" x="0.0" y="0.0" width="387" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJr-CG-kkP">
-                        <rect key="frame" x="28" y="12" width="42" height="57.5"/>
+                        <rect key="frame" x="28" y="18" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Oj-kn-FGR">
+                        <rect key="frame" x="28" y="60.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="UJr-CG-kkP" secondAttribute="bottom" constant="4" id="7A3-Lc-a01"/>
-                    <constraint firstItem="UJr-CG-kkP" firstAttribute="leading" secondItem="fod-UQ-kzm" secondAttribute="leadingMargin" constant="20" id="DCL-uc-18k"/>
-                    <constraint firstItem="UJr-CG-kkP" firstAttribute="top" secondItem="fod-UQ-kzm" secondAttribute="topMargin" constant="4" id="Egl-fH-9Vb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0Oj-kn-FGR" secondAttribute="bottom" constant="10" id="3Tx-QW-4uY"/>
+                    <constraint firstItem="UJr-CG-kkP" firstAttribute="leading" secondItem="fod-UQ-kzm" secondAttribute="leadingMargin" constant="20" id="9fz-Dt-1p2"/>
+                    <constraint firstItem="UJr-CG-kkP" firstAttribute="top" secondItem="fod-UQ-kzm" secondAttribute="topMargin" constant="10" id="L4P-1K-kll"/>
+                    <constraint firstItem="0Oj-kn-FGR" firstAttribute="leading" secondItem="fod-UQ-kzm" secondAttribute="leadingMargin" constant="20" id="yZq-Iz-606"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="dateLabel" destination="0Oj-kn-FGR" id="KPM-d5-Ftn"/>
                 <outlet property="textLabel" destination="UJr-CG-kkP" id="AND-Ex-QHf"/>
             </connections>
-            <point key="canvasLocation" x="183.5" y="-19"/>
+            <point key="canvasLocation" x="183.5" y="-10"/>
         </tableViewCell>
     </objects>
 </document>

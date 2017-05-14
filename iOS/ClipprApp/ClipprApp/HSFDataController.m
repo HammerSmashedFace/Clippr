@@ -64,7 +64,7 @@
 }
 
 - (void)jsonManager:(HSFJSONManager *)manager didReceiveItem:(NSDictionary *)data
-{
+{	
 	HSFClipboardItem *newItem = [[HSFClipboardItem alloc] initWithJSONRepresentation:data];
 
 	[self willChangeValueForKey:@"items"];

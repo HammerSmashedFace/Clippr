@@ -17,7 +17,7 @@
 	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:kNilOptions error:&error];
 
 	if (error == nil)
-	{
+	{		
 		[jsonData writeToFile:[self pathForJSON] atomically:YES];
 		[self.delegate jsonManager:self didReceiveItem:data];
 	}

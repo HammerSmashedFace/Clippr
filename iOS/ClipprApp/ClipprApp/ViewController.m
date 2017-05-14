@@ -37,7 +37,7 @@
 
 	self.tableViewDelegate = [[HSFTableViewDelegate alloc] init];
 	self.historyTableView.delegate = self.tableViewDelegate;
-}
+}	
 
 - (void)didReceiveMemoryWarning
 {
@@ -48,9 +48,9 @@
 
 - (IBAction)longTapRecognizer:(UILongPressGestureRecognizer *)sender
 {
-	CGPoint location = [sender locationInView:self.view];
+	CGPoint location = [sender locationInView:self.historyTableView];
 	NSIndexPath *indexPath = [self.historyTableView indexPathForRowAtPoint:location];
-	NSString *selectedValue = self.modelController.items[indexPath.item].text;
+	NSString *selectedValue = self.dataSource.items[indexPath.item].text;
 	NSDictionary *items = [NSDictionary dictionaryWithObject:selectedValue forKey:(NSString *)kUTTypeUTF8PlainText];
 	[[UIPasteboard generalPasteboard] setItems:@[items]];
 }
