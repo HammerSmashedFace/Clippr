@@ -12,7 +12,7 @@
 
 - (NSData *)data
 {
-	return [self.attributedString RTFFromRange:NSMakeRange(0, self.attributedString.length) documentAttributes:@{}];
+	return [self.attributedString RTFFromRange:NSMakeRange(0, self.attributedString.length) documentAttributes:@{}] ?: [super data];
 }
 
 @end

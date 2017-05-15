@@ -64,7 +64,14 @@
 				{
 					SFRTFClipboardItem *RTFClipboardItem = [[SFRTFClipboardItem alloc] initWithName:[self.pasteboard stringForType:NSPasteboardTypeString] source:currentRunningApp];
 					RTFClipboardItem.attributedString = [[[NSAttributedString alloc] initWithRTF:[self.pasteboard dataForType:NSPasteboardTypeRTF] documentAttributes:nil] autorelease];
-					RTFClipboardItem.type = NSPasteboardTypeRTF;
+					if (RTFClipboardItem.attributedString)
+					{
+						RTFClipboardItem.type = NSPasteboardTypeRTF;
+					}
+					else
+					{
+						RTFClipboardItem.type = NSPasteboardTypeString;
+					}
 					item = RTFClipboardItem;
 				}
 				else if ([self.pasteboard canReadObjectForClasses:@[[NSString class]] options:nil])
